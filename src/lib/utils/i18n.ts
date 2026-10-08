@@ -121,6 +121,7 @@ const en: Translation = {
         showTabs: 'Show Tab Bar',
         tabPosition: 'Tab Position',
         tabPositionTop: 'Top',
+        tabPositionBottom: 'Bottom',
         tabPositionLeft: 'Left Column',
         tabPositionRight: 'Right Column',
         restoreStateOnReopen: 'Reopen Previous Tabs',

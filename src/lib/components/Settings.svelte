@@ -1288,6 +1288,7 @@
 								<div class="select-wrapper">
 									<select id="appearance-tab-position" disabled={!settings.showTabs} bind:value={settings.tabPosition}>
 										<option value="top">{t('settings.tabPositionTop', settings.language)}</option>
+										<option value="bottom">{t('settings.tabPositionBottom', settings.language)}</option>
 										<option value="left">{t('settings.tabPositionLeft', settings.language)}</option>
 										<option value="right">{t('settings.tabPositionRight', settings.language)}</option>
 									</select>
