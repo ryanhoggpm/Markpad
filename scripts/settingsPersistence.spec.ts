@@ -1110,11 +1110,11 @@ test('no settings row buries a sized control below its own flex level', () => {
 });
 
 test('tab position survives a restart and an unknown value keeps the strip on top (#884)', () => {
-	for (const position of ['left', 'right', 'top'] as const) {
+	for (const position of ['left', 'right', 'bottom', 'top'] as const) {
 		resetStorage({ 'editor.tabPosition': position });
 		assert.equal(createStore().tabPosition, position);
 	}
-	for (const stored of ['bottom', '', 'LEFT', 'null']) {
+	for (const stored of ['center', '', 'LEFT', 'null']) {
 		resetStorage({ 'editor.tabPosition': stored });
 		assert.equal(createStore().tabPosition, 'top', `editor.tabPosition=${JSON.stringify(stored)}`);
 	}
@@ -1135,6 +1135,6 @@ test('the tab column width is clamped to its shared range on load and on resize'
 test('the tab position select offers exactly the values the store accepts', () => {
 	const select = sliceBetween(componentSource, 'id="appearance-tab-position"', '</select>');
 	const offered = [...select.matchAll(/<option value="([^"]+)"/g)].map((m) => m[1]);
-	assert.deepEqual(offered, ['top', 'left', 'right']);
+	assert.deepEqual(offered, ['top', 'bottom', 'left', 'right']);
 	for (const value of offered) assert.ok(settingsModule.isTabPosition(value), value);
 });

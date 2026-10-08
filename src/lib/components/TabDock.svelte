@@ -1,29 +1,35 @@
+<script lang="ts" module>
+	/** Height of the bottom strip: the title bar's 36px, so a tab reads the same at either edge. */
+	export const TAB_DOCK_STRIP_HEIGHT = 36;
+</script>
+
 <script lang="ts">
 	import { tabManager } from '../stores/tabs.svelte.js';
 	import { settings } from '../stores/settings.svelte.js';
 	import TabList from './TabList.svelte';
 
 	/**
-	 * The open documents as a column down one side of the window (#884).
+	 * The open documents docked outside the title bar (#884): a column down
+	 * the left or right side, or a strip along the bottom edge.
 	 *
-	 * The same `TabList` the title bar draws, turned on its side, so every tab
-	 * action (context menu, middle-click close, drag to reorder, move to another
-	 * window) is the strip's own code rather than a second copy of it. The
-	 * column sits under the title bar; `MarkdownViewer` moves the document over
-	 * by `settings.tabColumnWidth` while it is shown.
+	 * The same `TabList` the title bar draws, so every tab action (context
+	 * menu, middle-click close, drag to reorder, move to another window) is the
+	 * strip's own code rather than a second copy of it. `MarkdownViewer` insets
+	 * the document by the dock's size while it is shown.
 	 */
 	let {
-		side,
+		position,
 		showHome = false,
 		ontabclick,
 		oncloseTab,
 	} = $props<{
-		side: 'left' | 'right';
+		position: 'left' | 'right' | 'bottom';
 		showHome?: boolean;
 		ontabclick?: () => void;
 		oncloseTab?: (id: string) => void;
 	}>();
 
+	const isColumn = $derived(position !== 'bottom');
 	let isResizing = $state(false);
 
 	function startResize(e: PointerEvent) {
@@ -33,14 +39,14 @@
 
 		const startX = e.clientX;
 		const startWidth = settings.tabColumnWidth;
-		const resizeSide = side;
+		const side = position;
 		isResizing = true;
 		document.body.style.cursor = 'col-resize';
 		document.body.style.userSelect = 'none';
 
 		const onMove = (moveEvent: PointerEvent) => {
 			const deltaX = moveEvent.clientX - startX;
-			settings.setTabColumnWidth(startWidth + (resizeSide === 'left' ? deltaX : -deltaX));
+			settings.setTabColumnWidth(startWidth + (side === 'left' ? deltaX : -deltaX));
 		};
 
 		const onUp = (upEvent: PointerEvent) => {
@@ -64,60 +70,93 @@
 </script>
 
 <aside
-	class="tab-column on-{side}"
+	class="tab-dock on-{position}"
 	class:tagged={tabManager.windowTag !== null}
 	class:resizing={isResizing}
-	style:width="{settings.tabColumnWidth}px"
+	style:width={isColumn ? `${settings.tabColumnWidth}px` : null}
+	style:height={isColumn ? null : `${TAB_DOCK_STRIP_HEIGHT}px`}
 	style:--tag-color={tabManager.windowTag?.color}>
-	<TabList orientation="vertical" onnewTab={() => tabManager.addNewTab()} {showHome} {ontabclick} {oncloseTab} />
-	<!-- svelte-ignore a11y_no_static_element_interactions -->
-	<div class="tab-column-resizer" onpointerdown={startResize}></div>
+	<TabList
+		orientation={isColumn ? 'vertical' : 'horizontal'}
+		inTitleBar={false}
+		onnewTab={() => tabManager.addNewTab()}
+		{showHome}
+		{ontabclick}
+		{oncloseTab} />
+	{#if isColumn}
+		<!-- svelte-ignore a11y_no_static_element_interactions -->
+		<div class="tab-dock-resizer" onpointerdown={startResize}></div>
+	{/if}
 </aside>
 
 <style>
-	.tab-column {
+	.tab-dock {
 		position: fixed;
-		top: 36px;
-		bottom: 0;
 		z-index: 900;
 		display: flex;
-		flex-direction: column;
 		box-sizing: border-box;
 		background: var(--color-canvas-default);
 		font-family: var(--win-font, 'Segoe UI', sans-serif);
 	}
 
-	.tab-column.on-left {
+	.tab-dock.on-left,
+	.tab-dock.on-right {
+		top: 36px;
+		bottom: 0;
+		flex-direction: column;
+	}
+
+	.tab-dock.on-left {
 		left: 0;
 		border-right: 1px solid var(--color-border-muted);
 	}
 
-	.tab-column.on-right {
+	.tab-dock.on-right {
 		right: 0;
 		border-left: 1px solid var(--color-border-muted);
 	}
 
-	/* The window tag, drawn once along the column's inner edge: the vertical
-	   counterpart of the line under the strip in TitleBar.svelte. */
-	.tab-column.tagged::after {
+	.tab-dock.on-bottom {
+		left: 0;
+		right: 0;
+		bottom: 0;
+		align-items: center;
+		border-top: 1px solid var(--color-border-muted);
+	}
+
+	/* The window tag, drawn once along the dock's inner edge: the counterpart
+	   of the line under the strip in TitleBar.svelte. */
+	.tab-dock.tagged::after {
 		content: '';
 		position: absolute;
-		top: 0;
-		bottom: 0;
-		width: 2px;
 		background: var(--tag-color);
 		pointer-events: none;
 	}
 
-	.tab-column.tagged.on-left::after {
+	.tab-dock.tagged.on-left::after,
+	.tab-dock.tagged.on-right::after {
+		top: 0;
+		bottom: 0;
+		width: 2px;
+	}
+
+	.tab-dock.tagged.on-left::after {
 		right: -1px;
 	}
 
-	.tab-column.tagged.on-right::after {
+	.tab-dock.tagged.on-right::after {
 		left: -1px;
 	}
 
-	.tab-column-resizer {
+	.tab-dock.tagged.on-bottom::after {
+		left: 0;
+		right: 0;
+		top: -1px;
+		height: 2px;
+		z-index: 30;
+	}
+
+	.tab-dock-resizer {
 		position: absolute;
 		top: 0;
 		bottom: 0;
@@ -126,16 +165,16 @@
 		z-index: 1;
 	}
 
-	.on-left .tab-column-resizer {
+	.on-left .tab-dock-resizer {
 		right: -3px;
 	}
 
-	.on-right .tab-column-resizer {
+	.on-right .tab-dock-resizer {
 		left: -3px;
 	}
 
-	.tab-column-resizer:hover,
-	.tab-column.resizing .tab-column-resizer {
+	.tab-dock-resizer:hover,
+	.tab-dock.resizing .tab-dock-resizer {
 		background: color-mix(in srgb, var(--color-accent-fg) 35%, transparent);
 	}
 </style>
