@@ -123,6 +123,15 @@ const en: Translation = {
         tabPositionTop: 'Top',
         tabPositionLeft: 'Left Column',
         tabPositionRight: 'Right Column',
+        folderSide: 'Folder Sidebar Side',
+        folderSideLeft: 'Left',
+        folderSideRight: 'Right',
+        folderSideFollowsTabs: 'Follows the tab column',
+        sidebarStackOrder: 'Sidebar Stack Order',
+        sidebarStackOpenFilesTop: 'Open Files on Top',
+        sidebarStackFolderTop: 'Folder on Top',
+        folderShowAllFiles: 'Show All Files in Folder',
+        folderShowAllFilesHint: 'Other files open in their default app',
         restoreStateOnReopen: 'Reopen Previous Tabs',
         closeWindowWithLastTab: 'Close Window with Last Tab',
         openFileMode: 'Open existing files in',
@@ -453,6 +462,16 @@ const en: Translation = {
         untitled: 'Untitled',
         home: 'Home',
         resizeColumn: 'Resize tab column'
+    },
+    folder: {
+        openFiles: 'Open Files',
+        openFolder: 'Open Folder...',
+        closeFolder: 'Close Folder',
+        refresh: 'Refresh',
+        empty: 'No Markdown or text files here',
+        unavailable: 'This folder could not be read',
+        noFolder: 'No folder open',
+        resizeSplit: 'Resize open files and folder'
     },
     common: {
         close: 'Close',
