@@ -44,6 +44,7 @@ const {
 	EDITOR_MAX_WIDTH_RANGE,
 	PREVIEW_FONT_SIZE_RANGE,
 	SettingsStore,
+	SIDEBAR_SPLIT_RANGE,
 	TAB_COLUMN_WIDTH_RANGE,
 	ZOOM_LEVEL_RANGE,
 	clampToRange,
@@ -1137,4 +1138,22 @@ test('the tab position select offers exactly the values the store accepts', () =
 	const offered = [...select.matchAll(/<option value="([^"]+)"/g)].map((m) => m[1]);
 	assert.deepEqual(offered, ['top', 'left', 'right']);
 	for (const value of offered) assert.ok(settingsModule.isTabPosition(value), value);
+});
+
+test('folder sidebar settings survive a restart and reject unknown values', () => {
+	resetStorage({ 'folder.side': 'right', 'folder.stackOrder': 'folderTop', 'folder.split': '70', 'folder.showAllFiles': 'true' });
+	const store = createStore();
+	assert.equal(store.folderSide, 'right');
+	assert.equal(store.sidebarStackOrder, 'folderTop');
+	assert.equal(store.sidebarSplit, 70);
+	assert.equal(store.folderShowAllFiles, true);
+
+	resetStorage({ 'folder.side': 'middle', 'folder.stackOrder': 'sideways', 'folder.split': '99' });
+	const fallback = createStore();
+	assert.equal(fallback.folderSide, 'left');
+	assert.equal(fallback.sidebarStackOrder, 'openFilesTop');
+	assert.equal(fallback.sidebarSplit, SIDEBAR_SPLIT_RANGE.max);
+	assert.equal(fallback.folderShowAllFiles, false);
+	fallback.setSidebarSplit(1);
+	assert.equal(fallback.sidebarSplit, SIDEBAR_SPLIT_RANGE.min);
 });
