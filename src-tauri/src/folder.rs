@@ -6,10 +6,12 @@
 //! - **One level per call.** Nothing here walks a tree. The sidebar asks for a
 //!   folder's children when the reader expands it, so opening a folder with a
 //!   `node_modules` in it costs one `read_dir` of its top level.
-//! - **Only expanded folders are watched**, each non-recursively, and dropped
-//!   when collapsed, when the root changes, or when the window closes. A
-//!   change emits `folder-changed` with the folder's path and the frontend
-//!   re-reads that one level; there is no tree state on this side to drift.
+//! - **Only expanded folders are watched**, each non-recursively, on one
+//!   watcher per window (one inotify instance or FSEvents stream, however
+//!   many folders are open), and unwatched when collapsed, when the root
+//!   changes, or when the window closes. A change emits `folder-changed` with
+//!   the folder's path and the frontend re-reads that one level; there is no
+//!   tree state on this side to drift.
 //!
 //! - **Links are not followed on Windows.** Touching a UNC path makes
 //!   Windows connect to that host over SMB and offer the user's NTLM
@@ -22,7 +24,11 @@
 //!   none of that. `read_dir` reports an entry's type from the directory's
 //!   own records without opening it, so a listing never reaches a link's
 //!   target, and the tree never offers a link to expand or open. Elsewhere a
-//!   link is followed: a network share there is a mount the user made.
+//!   link is followed, and that can reach the network too: listing a folder
+//!   stats each link to tell a folder from a file, and macOS autofs mounts
+//!   `/net/<host>` on first access, so a link into `/net` contacts that host
+//!   as soon as its parent is listed. NFS sends no reusable credential the
+//!   way NTLM does, so links stay listed there.
 //!
 //! Which files Markpad can open is decided by the frontend, from the same
 //! `MARKDOWN_LINK_EXTENSIONS` list the Open dialog filters on, so this module
@@ -30,11 +36,12 @@
 
 use crate::commands::blocking;
 use crate::window_runtime::{coalesced, lock_recover};
-use notify::{Config, RecommendedWatcher, RecursiveMode, Watcher};
-use std::collections::HashMap;
+use notify::{Config, EventKind, RecommendedWatcher, RecursiveMode, Watcher};
+use std::collections::hash_map::Entry;
+use std::collections::{HashMap, HashSet};
 use std::fs;
-use std::path::Path;
-use std::sync::Mutex;
+use std::path::{Path, PathBuf};
+use std::sync::{Arc, Mutex};
 use std::time::Duration;
 use tauri::{AppHandle, Emitter, Manager};
 
@@ -46,21 +53,69 @@ pub struct FolderEntry {
     pub is_dir: bool,
 }
 
-/// Window label -> (folder path -> its watcher).
+/// Window label -> its one folder watcher.
 pub struct FolderWatcherState {
-    watchers: Mutex<HashMap<String, HashMap<String, RecommendedWatcher>>>,
+    windows: Mutex<HashMap<String, FolderWatch>>,
+}
+
+struct FolderWatch {
+    watcher: RecommendedWatcher,
+    /// Each watched folder as an event may spell it -> the path the frontend
+    /// named. Both the named and the canonical spelling are keys: FSEvents
+    /// reports resolved paths (`/private/tmp` for `/tmp`), inotify the named one.
+    folders: Arc<Mutex<HashMap<PathBuf, String>>>,
 }
 
 impl FolderWatcherState {
     pub fn new() -> Self {
         Self {
-            watchers: Mutex::new(HashMap::new()),
+            windows: Mutex::new(HashMap::new()),
         }
     }
 
     pub fn forget_window(&self, label: &str) {
-        lock_recover(&self.watchers).remove(label);
+        lock_recover(&self.windows).remove(label);
     }
+}
+
+/// The watched folders an event's paths are direct children of.
+fn changed_folders(event: &notify::Event, folders: &HashMap<PathBuf, String>) -> Vec<String> {
+    // Reads do not change a listing; everything else might.
+    if matches!(event.kind, EventKind::Access(_)) {
+        return Vec::new();
+    }
+    event
+        .paths
+        .iter()
+        .filter_map(|path| folders.get(path.parent()?))
+        .cloned()
+        .collect()
+}
+
+fn new_folder_watch(handle: AppHandle, label: String) -> Result<FolderWatch, String> {
+    let folders: Arc<Mutex<HashMap<PathBuf, String>>> = Arc::default();
+    let changed: Arc<Mutex<HashSet<String>>> = Arc::default();
+    let pending = changed.clone();
+    let emit = coalesced(Duration::from_millis(200), move || {
+        for folder in std::mem::take(&mut *lock_recover(&pending)) {
+            let _ = handle.emit_to(label.as_str(), "folder-changed", folder);
+        }
+    });
+    let watched = folders.clone();
+    let watcher = RecommendedWatcher::new(
+        move |result: Result<notify::Event, notify::Error>| {
+            let Ok(event) = result else { return };
+            let hits = changed_folders(&event, &lock_recover(&watched));
+            if hits.is_empty() {
+                return;
+            }
+            lock_recover(&changed).extend(hits);
+            emit();
+        },
+        Config::default(),
+    )
+    .map_err(|e| e.to_string())?;
+    Ok(FolderWatch { watcher, folders })
 }
 
 /// The children of `dir`: folders first, then files, each sorted by name
@@ -125,33 +180,21 @@ pub async fn watch_folder(
 ) -> Result<(), String> {
     blocking(move || {
         let label = window.label().to_string();
-        let event_label = label.clone();
-        let changed_path = path.clone();
-        let emitter = handle.clone();
-        let emit = coalesced(Duration::from_millis(200), move || {
-            let _ = emitter.emit_to(event_label.as_str(), "folder-changed", changed_path.clone());
-        });
-        let mut watcher = RecommendedWatcher::new(
-            move |result: Result<notify::Event, notify::Error>| {
-                let Ok(event) = result else { return };
-                // Reads do not change a listing; everything else might.
-                if matches!(event.kind, notify::EventKind::Access(_)) {
-                    return;
-                }
-                emit();
-            },
-            Config::default(),
-        )
-        .map_err(|e| e.to_string())?;
-        watcher
+        let state = handle.state::<FolderWatcherState>();
+        let mut windows = lock_recover(&state.windows);
+        let watch = match windows.entry(label.clone()) {
+            Entry::Occupied(entry) => entry.into_mut(),
+            Entry::Vacant(entry) => entry.insert(new_folder_watch(handle.clone(), label)?),
+        };
+        watch
+            .watcher
             .watch(Path::new(&path), RecursiveMode::NonRecursive)
             .map_err(|e| e.to_string())?;
-
-        let state = handle.state::<FolderWatcherState>();
-        lock_recover(&state.watchers)
-            .entry(label)
-            .or_default()
-            .insert(path, watcher);
+        let mut folders = lock_recover(&watch.folders);
+        if let Ok(canonical) = fs::canonicalize(&path) {
+            folders.insert(canonical, path.clone());
+        }
+        folders.insert(PathBuf::from(&path), path);
         Ok(())
     })
     .await
@@ -163,8 +206,10 @@ pub fn unwatch_folder(
     state: tauri::State<'_, FolderWatcherState>,
     path: String,
 ) -> Result<(), String> {
-    if let Some(folders) = lock_recover(&state.watchers).get_mut(window.label()) {
-        folders.remove(&path);
+    if let Some(watch) = lock_recover(&state.windows).get_mut(window.label()) {
+        lock_recover(&watch.folders).retain(|_, named| *named != path);
+        // A folder deleted since it was watched has no watch left to remove.
+        let _ = watch.watcher.unwatch(Path::new(&path));
     }
     Ok(())
 }
@@ -230,6 +275,31 @@ mod tests {
         let entries = list_folder(&dir).unwrap();
         assert_eq!(names(&entries), ["real"]);
         fs::remove_dir_all(&dir).unwrap();
+    }
+
+    #[test]
+    fn an_event_names_the_watched_folder_it_happened_in() {
+        let folders = HashMap::from([
+            (PathBuf::from("/tmp/notes"), "/tmp/notes".to_string()),
+            (
+                PathBuf::from("/private/tmp/notes"),
+                "/tmp/notes".to_string(),
+            ),
+        ]);
+        let event = |kind, path: &str| notify::Event::new(kind).add_path(PathBuf::from(path));
+        let create = EventKind::Create(notify::event::CreateKind::File);
+        assert_eq!(
+            changed_folders(&event(create, "/tmp/notes/a.md"), &folders),
+            ["/tmp/notes"]
+        );
+        assert_eq!(
+            changed_folders(&event(create, "/private/tmp/notes/a.md"), &folders),
+            ["/tmp/notes"],
+            "FSEvents reports the resolved path"
+        );
+        assert!(changed_folders(&event(create, "/tmp/notes/sub/a.md"), &folders).is_empty());
+        let read = EventKind::Access(notify::event::AccessKind::Read);
+        assert!(changed_folders(&event(read, "/tmp/notes/a.md"), &folders).is_empty());
     }
 
     #[test]

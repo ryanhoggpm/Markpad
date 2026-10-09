@@ -97,6 +97,21 @@ test('a folder-changed event re-reads that one listing', async () => {
 	);
 });
 
+test('a subfolder that vanished collapses with everything under it', async () => {
+	freshDisk();
+	const folder = new FolderManager();
+	await folder.open('/notes');
+	await folder.toggle('/notes/drafts');
+	await folder.toggle('/notes/drafts/old');
+	delete disk['/notes/drafts'];
+	delete disk['/notes/drafts/old'];
+
+	await folder.refresh();
+	assert.deepEqual(folder.expanded, []);
+	assert.deepEqual(Object.keys(folder.entries), ['/notes']);
+	assert.deepEqual([...watched], ['/notes']);
+});
+
 test('closing forgets the folder, its watches and the saved root', async () => {
 	freshDisk();
 	const folder = new FolderManager();
