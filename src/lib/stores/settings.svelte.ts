@@ -199,10 +199,10 @@ export const DEFAULT_FONTS: Record<OSType, DefaultFonts> = {
 	},
 };
 
-export type TabPosition = 'top' | 'bottom' | 'left' | 'right';
+export type TabPosition = 'top' | 'left' | 'right';
 
 export function isTabPosition(value: unknown): value is TabPosition {
-	return value === 'top' || value === 'bottom' || value === 'left' || value === 'right';
+	return value === 'top' || value === 'left' || value === 'right';
 }
 
 /**
@@ -572,11 +572,11 @@ export class SettingsStore {
 	splitEditorSide = $state<'left' | 'right'>('left');
 	tocWidth = $state(TOC_WIDTH_RANGE.default);
 	/**
-	 * Where the open documents are listed (#884): across the title bar, along
-	 * the bottom edge, or as a column down one side of the window. A long horizontal strip hides most
+	 * Where the open documents are listed (#884): across the title bar, or as
+	 * a column down one side of the window. A long horizontal strip hides most
 	 * of its tabs once a dozen files are open; a column shows them all by name.
 	 * `showTabs` still decides whether they are shown at all, so zen mode hides
-	 * the dock the same way it hides the strip.
+	 * the column the same way it hides the strip.
 	 */
 	tabPosition = $state<TabPosition>('top');
 	tabColumnWidth = $state(TAB_COLUMN_WIDTH_RANGE.default);

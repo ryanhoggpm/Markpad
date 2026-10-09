@@ -9,7 +9,7 @@
 	import { open, save, ask } from '@tauri-apps/plugin-dialog';
 	import Settings from './components/Settings.svelte';
 	import TitleBar from './components/TitleBar.svelte';
-	import TabDock, { TAB_DOCK_STRIP_HEIGHT } from './components/TabDock.svelte';
+	import TabColumn from './components/TabColumn.svelte';
 	import DiffOverlay from './components/DiffOverlay.svelte';
 	import Editor from './components/Editor.svelte';
 	import EditorToolbar from './components/EditorToolbar.svelte';
@@ -343,10 +343,10 @@ import { createDocumentSession, type LoadMarkdownOptions } from './sessions/docu
 	let isAtBottom = $state(false);
 
 	let showHome = $state(false);
-	// Where the tab dock is, or null while the tabs are across the title bar or
-	// hidden (#884). Zen mode clears `showTabs`, so it hides the dock through
-	// the same switch it uses for the strip.
-	const tabDockPosition = $derived(
+	// Which side the tab column is on, or null while the tabs are across the
+	// title bar or hidden (#884). Zen mode clears `showTabs`, so it hides the
+	// column through the same switch it uses for the strip.
+	const tabColumnSide = $derived(
 		tabManager.tabs.length > 0 && settings.showTabs && settings.tabPosition !== 'top' ? settings.tabPosition : null,
 	);
 	let viewerWidth = $state(0);
@@ -3987,22 +3987,21 @@ import { createDocumentSession, type LoadMarkdownOptions } from './sessions/docu
 		onreload={resolveExternalChangeByReloading}
 		onkeep={resolveExternalChangeByKeepingBuffer} />
 
-	{#if tabDockPosition}
-		<TabDock position={tabDockPosition} {showHome} ontabclick={() => (showHome = false)} oncloseTab={closeTabAndWindowIfLast} />
+	{#if tabColumnSide}
+		<TabColumn side={tabColumnSide} {showHome} ontabclick={() => (showHome = false)} oncloseTab={closeTabAndWindowIfLast} />
 	{/if}
 
 	<!--
 		Plain block with the tabs across the top. With a tab column (#884) it
-		becomes the box the document is laid out in, inset by the dock's size, so
-		the absolutely positioned layout, the outline and the home page all
-		measure from the dock's edge without each learning about it.
+		becomes the box the document is laid out in, inset by the column's width,
+		so the absolutely positioned layout, the outline and the home page all
+		measure from the column's edge without each learning about it.
 	-->
 	<div
 		class="content-area"
-		class:beside-tab-dock={tabDockPosition !== null}
-		style:left={tabDockPosition === 'left' ? `${settings.tabColumnWidth}px` : null}
-		style:right={tabDockPosition === 'right' ? `${settings.tabColumnWidth}px` : null}
-		style:bottom={tabDockPosition === 'bottom' ? `${TAB_DOCK_STRIP_HEIGHT}px` : null}>
+		class:beside-tab-column={tabColumnSide !== null}
+		style:left={tabColumnSide === 'left' ? `${settings.tabColumnWidth}px` : null}
+		style:right={tabColumnSide === 'right' ? `${settings.tabColumnWidth}px` : null}>
 	{#if tabManager.activeTab && !isHomePath(tabManager.activeTab.path) && !showHome}
 			<div
 				class="markdown-container"
@@ -4877,17 +4876,12 @@ import { createDocumentSession, type LoadMarkdownOptions } from './sessions/docu
 		}
 	}
 	/* Layout System */
-	.content-area.beside-tab-dock {
+	.content-area.beside-tab-column {
 		position: fixed;
 		top: 0;
 		bottom: 0;
 		left: 0;
 		right: 0;
-	}
-
-	/* The home page sizes itself to the viewport; inside the dock's inset it fills the box instead. */
-	.content-area.beside-tab-dock :global(.message) {
-		height: 100%;
 	}
 
 	.layout-container {
