@@ -347,7 +347,7 @@ import { createDocumentSession, type LoadMarkdownOptions } from './sessions/docu
 	// title bar or hidden (#884). Zen mode clears `showTabs`, so it hides the
 	// column through the same switch it uses for the strip.
 	const tabColumnSide = $derived(
-		tabManager.tabs.length > 0 && settings.showTabs && settings.tabPosition !== 'top' ? settings.tabPosition : null,
+		tabManager.tabs.length > 0 && settings.tabPlacement !== 'top' ? settings.tabPlacement : null,
 	);
 	let viewerWidth = $state(0);
 	// The bounds come from TOC_WIDTH_RANGE, the same object settings.setTocWidth
@@ -3956,21 +3956,6 @@ import { createDocumentSession, type LoadMarkdownOptions } from './sessions/docu
 
 	<Settings show={showSettings} theme={settings.theme} onSetTheme={(t) => (settings.theme = t)} onclose={() => (showSettings = false)} />
 
-	{#if activeExternalChangeConflict && !showHome}
-		<div class="external-change-bar" role="status">
-			<span class="external-change-text">{t('externalChange.message', settings.language)}</span>
-			<button class="external-change-action" onclick={compareExternalChange}>
-				{t('externalChange.compare', settings.language)}
-			</button>
-			<button class="external-change-action" onclick={resolveExternalChangeByReloading}>
-				{t('externalChange.reload', settings.language)}
-			</button>
-			<button class="external-change-action primary" onclick={resolveExternalChangeByKeepingBuffer}>
-				{t('externalChange.keepMine', settings.language)}
-			</button>
-		</div>
-	{/if}
-
 	<DiffOverlay
 		show={comparison !== null}
 		onDisk={comparison?.onDisk ?? ''}
@@ -4002,6 +3987,20 @@ import { createDocumentSession, type LoadMarkdownOptions } from './sessions/docu
 		class:beside-tab-column={tabColumnSide !== null}
 		style:left={tabColumnSide === 'left' ? `${settings.tabColumnWidth}px` : null}
 		style:right={tabColumnSide === 'right' ? `${settings.tabColumnWidth}px` : null}>
+	{#if activeExternalChangeConflict && !showHome}
+		<div class="external-change-bar" role="status">
+			<span class="external-change-text">{t('externalChange.message', settings.language)}</span>
+			<button class="external-change-action" onclick={compareExternalChange}>
+				{t('externalChange.compare', settings.language)}
+			</button>
+			<button class="external-change-action" onclick={resolveExternalChangeByReloading}>
+				{t('externalChange.reload', settings.language)}
+			</button>
+			<button class="external-change-action primary" onclick={resolveExternalChangeByKeepingBuffer}>
+				{t('externalChange.keepMine', settings.language)}
+			</button>
+		</div>
+	{/if}
 	{#if tabManager.activeTab && !isHomePath(tabManager.activeTab.path) && !showHome}
 			<div
 				class="markdown-container"
@@ -4876,8 +4875,10 @@ import { createDocumentSession, type LoadMarkdownOptions } from './sessions/docu
 		}
 	}
 	/* Layout System */
+	/* Absolute, not fixed: with no z-index it opens no stacking context, so
+	   menus inside it still stack against the title bar and the tab column. */
 	.content-area.beside-tab-column {
-		position: fixed;
+		position: absolute;
 		top: 0;
 		bottom: 0;
 		left: 0;
@@ -4997,9 +4998,10 @@ import { createDocumentSession, type LoadMarkdownOptions } from './sessions/docu
 	 * `.layout-container` is absolutely positioned from top: 0, so a bar in
 	 * normal flow would end up underneath it. Pinned just below the 36px
 	 * title bar instead, the way editors surface file-changed-on-disk notices.
+	 * Absolute inside `.content-area`, so it spans the document beside a tab column.
 	 */
 	.external-change-bar {
-		position: fixed;
+		position: absolute;
 		top: 36px;
 		left: 0;
 		right: 0;

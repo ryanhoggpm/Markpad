@@ -451,7 +451,8 @@ const en: Translation = {
     },
     tabs: {
         untitled: 'Untitled',
-        home: 'Home'
+        home: 'Home',
+        resizeColumn: 'Resize tab column'
     },
     common: {
         close: 'Close',

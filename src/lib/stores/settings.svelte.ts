@@ -580,6 +580,10 @@ export class SettingsStore {
 	 */
 	tabPosition = $state<TabPosition>('top');
 	tabColumnWidth = $state(TAB_COLUMN_WIDTH_RANGE.default);
+	/** Where the tabs are drawn, or null with them hidden. The title bar and the tab column both read this. */
+	get tabPlacement(): TabPosition | null {
+		return this.showTabs ? this.tabPosition : null;
+	}
 	osType = $state<OSType>('unknown');
 	imageDirectory = $state('img');
 	macosImageScaling = $state(true);
