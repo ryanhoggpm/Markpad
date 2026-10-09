@@ -1,5 +1,6 @@
 import { invoke } from '@tauri-apps/api/core';
-import { listen, type UnlistenFn } from '@tauri-apps/api/event';
+import type { UnlistenFn } from '@tauri-apps/api/event';
+import { getCurrentWindow } from '@tauri-apps/api/window';
 import { writeStoredSetting } from './settings.svelte.js';
 
 /** One child of a folder, as `read_folder_entries` lists it. */
@@ -37,7 +38,7 @@ export class FolderManager {
 		this.error = null;
 		// Storage can be unavailable; the folder still opens for this session.
 		writeStoredSetting(LAST_FOLDER_KEY, path);
-		this.#unlisten ??= await listen<string>('folder-changed', (event) => {
+		this.#unlisten ??= await getCurrentWindow().listen<string>('folder-changed', (event) => {
 			if (this.isLoaded(event.payload)) void this.#read(event.payload);
 		});
 		await this.#load(path);
@@ -77,20 +78,25 @@ export class FolderManager {
 
 	async toggle(path: string) {
 		if (this.isExpanded(path)) {
-			this.expanded = this.expanded.filter((p) => p !== path && !isInside(p, path));
-			const kept: Record<string, FolderEntry[]> = {};
-			for (const [dir, list] of Object.entries(this.entries)) {
-				if (dir === path || isInside(dir, path)) {
-					invoke('unwatch_folder', { path: dir }).catch(console.error);
-				} else {
-					kept[dir] = list;
-				}
-			}
-			this.entries = kept;
+			this.#collapse(path);
 			return;
 		}
 		this.expanded = [...this.expanded, path];
 		await this.#load(path);
+	}
+
+	/** Forgets `path` and every folder expanded under it, and stops watching them. */
+	#collapse(path: string) {
+		this.expanded = this.expanded.filter((p) => p !== path && !isInside(p, path));
+		const kept: Record<string, FolderEntry[]> = {};
+		for (const [dir, list] of Object.entries(this.entries)) {
+			if (dir === path || isInside(dir, path)) {
+				invoke('unwatch_folder', { path: dir }).catch(console.error);
+			} else {
+				kept[dir] = list;
+			}
+		}
+		this.entries = kept;
 	}
 
 	/** Re-reads every listing on screen, for the Refresh button. */
@@ -115,7 +121,7 @@ export class FolderManager {
 				this.error = String(error);
 			} else {
 				// A subfolder that vanished collapses; its parent's listing drops it on the next event.
-				this.expanded = this.expanded.filter((p) => p !== path);
+				this.#collapse(path);
 			}
 		}
 	}
