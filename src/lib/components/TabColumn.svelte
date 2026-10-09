@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { tabManager } from '../stores/tabs.svelte.js';
-	import { settings } from '../stores/settings.svelte.js';
+	import { settings, TAB_COLUMN_WIDTH_RANGE } from '../stores/settings.svelte.js';
+	import { t } from '../utils/i18n.js';
 	import TabList from './TabList.svelte';
 
 	/**
@@ -61,6 +62,16 @@
 		window.addEventListener('pointerup', onUp);
 		window.addEventListener('pointercancel', onUp);
 	}
+
+	// Same keys as the outline's resize handle in MarkdownViewer.svelte.
+	function handleResizeKeyDown(e: KeyboardEvent) {
+		const step = e.key === 'ArrowRight' ? 16 : e.key === 'ArrowLeft' ? -16 : 0;
+		if (step !== 0) settings.setTabColumnWidth(settings.tabColumnWidth + (side === 'left' ? step : -step));
+		else if (e.key === 'Home') settings.setTabColumnWidth(TAB_COLUMN_WIDTH_RANGE.min);
+		else if (e.key === 'End') settings.setTabColumnWidth(TAB_COLUMN_WIDTH_RANGE.max);
+		else return;
+		e.preventDefault();
+	}
 </script>
 
 <aside
@@ -70,8 +81,19 @@
 	style:width="{settings.tabColumnWidth}px"
 	style:--tag-color={tabManager.windowTag?.color}>
 	<TabList orientation="vertical" onnewTab={() => tabManager.addNewTab()} {showHome} {ontabclick} {oncloseTab} />
-	<!-- svelte-ignore a11y_no_static_element_interactions -->
-	<div class="tab-column-resizer" onpointerdown={startResize}></div>
+	<!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+	<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
+	<div
+		class="tab-column-resizer"
+		role="separator"
+		aria-label={t('tabs.resizeColumn', settings.language)}
+		aria-orientation="vertical"
+		aria-valuemin={TAB_COLUMN_WIDTH_RANGE.min}
+		aria-valuemax={TAB_COLUMN_WIDTH_RANGE.max}
+		aria-valuenow={settings.tabColumnWidth}
+		tabindex="0"
+		onpointerdown={startResize}
+		onkeydown={handleResizeKeyDown}></div>
 </aside>
 
 <style>
@@ -135,6 +157,7 @@
 	}
 
 	.tab-column-resizer:hover,
+	.tab-column-resizer:focus-visible,
 	.tab-column.resizing .tab-column-resizer {
 		background: color-mix(in srgb, var(--color-accent-fg) 35%, transparent);
 	}

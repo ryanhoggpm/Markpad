@@ -720,7 +720,7 @@
 	</div>
 
 	<!-- With the tabs in a side column (#884) the bar shows the window title, as it does with tabs hidden. -->
-	{#if tabManager.tabs.length > 0 && settings.showTabs && settings.tabPosition === 'top'}
+	{#if tabManager.tabs.length > 0 && settings.tabPlacement === 'top'}
 		<div class="tab-area" class:tagged={tabManager.windowTag !== null} style:--tag-color={tabManager.windowTag?.color}>
 			<TabList onnewTab={() => tabManager.addNewTab()} {showHome} {ontabclick} {oncloseTab} />
 		</div>
