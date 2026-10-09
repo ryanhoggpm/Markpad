@@ -19,7 +19,6 @@
 		ontabclick,
 		oncloseTab,
 		orientation = 'horizontal',
-		inTitleBar = true,
 	} = $props<{
 		onnewTab: () => void;
 		showHome?: boolean;
@@ -27,13 +26,10 @@
 		oncloseTab?: (id: string) => void;
 		/** `vertical` lists the tabs down the tab column instead of across the title bar (#884). */
 		orientation?: 'horizontal' | 'vertical';
-		/** Only a strip inside the title bar doubles as a handle for dragging the window. */
-		inTitleBar?: boolean;
 	}>();
 
 	const vertical = $derived(orientation === 'vertical');
 	const axis = $derived(vertical ? 'y' : 'x');
-	const dragRegion = $derived(inTitleBar && !vertical);
 
 	// Which tabs need a folder to be told apart, recomputed as the strip
 	// changes: a suffix is a fact about the SET of open tabs, not about any one
@@ -203,11 +199,11 @@
 
 <div class="tab-list-wrapper" class:vertical>
 	<div class="scroll-viewport">
-		<!-- Outside the title bar the strip is not a window drag region. -->
+		<!-- The column is not part of the title bar, so it is not a window drag region. -->
 		<div
 			bind:this={scrollContainer}
 			class="tab-list-container"
-			data-tauri-drag-region={dragRegion ? true : undefined}
+			data-tauri-drag-region={vertical ? undefined : true}
 			role="tablist"
 			aria-orientation={orientation}
 			tabindex="-1"
@@ -261,7 +257,7 @@
 	</button>
 
 	{#if !vertical}
-		<div class="tab-list-spacer" data-tauri-drag-region={dragRegion ? true : undefined}></div>
+		<div class="tab-list-spacer" data-tauri-drag-region></div>
 	{/if}
 </div>
 
