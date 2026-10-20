@@ -1493,16 +1493,18 @@
 		background: var(--color-canvas-subtle);
 	}
 
+	/*
+	 * The title takes the space between the left controls and the action
+	 * cluster rather than being positioned over the whole bar. Centred on the
+	 * window, it sat under the toolbar buttons once the window was narrower
+	 * than the title plus both clusters, and the buttons are above it (#884).
+	 */
 	.window-title-container {
-		position: absolute;
-		left: 0;
-		right: 0;
-		top: 0;
-		bottom: 0;
+		flex: 1;
+		min-width: 0;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		z-index: 5;
 	}
 
 	.window-title {
@@ -1512,13 +1514,7 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		display: block;
-		max-width: calc(100vw - 450px);
-	}
-
-	@media (max-width: 800px) {
-		.window-title {
-			max-width: calc(100vw - 260px);
-		}
+		max-width: 100%;
 	}
 
 	.title-text {
