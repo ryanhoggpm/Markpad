@@ -259,7 +259,6 @@ export default {
         refresh: 'Obnoviť',
         empty: 'Nie sú tu žiadne súbory Markdown ani textové súbory',
         unavailable: 'Tento priečinok sa nepodarilo načítať',
-        noFolder: 'Nie je otvorený žiadny priečinok',
         resizeSplit: 'Zmeniť veľkosť otvorených súborov a priečinka'
     },
     common: {

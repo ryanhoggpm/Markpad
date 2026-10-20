@@ -262,7 +262,6 @@ export default {
         refresh: 'Obnovit',
         empty: 'Nejsou zde žádné soubory Markdown ani textové soubory',
         unavailable: 'Tuto složku nelze načíst',
-        noFolder: 'Není otevřena žádná složka',
         resizeSplit: 'Změnit velikost otevřených souborů a složky'
     },
     common: {

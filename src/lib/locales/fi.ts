@@ -259,7 +259,6 @@ export default {
         refresh: 'Päivitä',
         empty: 'Täällä ei ole Markdown- tai tekstitiedostoja',
         unavailable: 'Tätä kansiota ei voitu lukea',
-        noFolder: 'Kansiota ei ole avattu',
         resizeSplit: 'Muuta avointen tiedostojen ja kansion kokoa'
     },
     common: {

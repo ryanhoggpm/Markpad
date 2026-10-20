@@ -259,7 +259,6 @@ export default {
         refresh: 'Segarkan',
         empty: 'Tidak ada berkas Markdown atau teks di sini',
         unavailable: 'Folder ini tidak dapat dibaca',
-        noFolder: 'Tidak ada folder yang terbuka',
         resizeSplit: 'Ubah ukuran berkas terbuka dan folder'
     },
     common: {

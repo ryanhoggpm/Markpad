@@ -259,7 +259,6 @@ export default {
         refresh: 'Frissítés',
         empty: 'Itt nincs Markdown- vagy szövegfájl',
         unavailable: 'A mappa nem olvasható',
-        noFolder: 'Nincs megnyitott mappa',
         resizeSplit: 'Megnyitott fájlok és mappa átméretezése'
     },
     common: {

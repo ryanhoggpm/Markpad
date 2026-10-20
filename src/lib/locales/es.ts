@@ -259,7 +259,6 @@ export default {
         refresh: 'Actualizar',
         empty: 'No hay archivos Markdown ni de texto aquí',
         unavailable: 'No se pudo leer esta carpeta',
-        noFolder: 'No hay ninguna carpeta abierta',
         resizeSplit: 'Cambiar tamaño de archivos abiertos y carpeta'
     },
     common: {

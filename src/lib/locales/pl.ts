@@ -275,7 +275,6 @@ export default {
         refresh: 'Odśwież',
         empty: 'Brak plików Markdown ani tekstowych',
         unavailable: 'Nie można odczytać tego folderu',
-        noFolder: 'Brak otwartego folderu',
         resizeSplit: 'Zmień rozmiar otwartych plików i folderu'
     },
     common: {

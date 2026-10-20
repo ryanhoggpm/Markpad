@@ -474,7 +474,6 @@ const en: Translation = {
         refresh: 'Refresh',
         empty: 'No Markdown or text files here',
         unavailable: 'This folder could not be read',
-        noFolder: 'No folder open',
         resizeSplit: 'Resize open files and folder'
     },
     common: {

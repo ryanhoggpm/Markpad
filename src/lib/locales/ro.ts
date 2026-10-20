@@ -259,7 +259,6 @@ export default {
         refresh: 'Reîmprospătare',
         empty: 'Nu există fișiere Markdown sau text aici',
         unavailable: 'Folderul nu a putut fi citit',
-        noFolder: 'Niciun folder deschis',
         resizeSplit: 'Redimensionează fișierele deschise și folderul'
     },
     common: {

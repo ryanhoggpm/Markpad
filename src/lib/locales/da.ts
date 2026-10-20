@@ -259,7 +259,6 @@ export default {
         refresh: 'Opdater',
         empty: 'Ingen Markdown- eller tekstfiler her',
         unavailable: 'Mappen kunne ikke læses',
-        noFolder: 'Ingen mappe åben',
         resizeSplit: 'Tilpas størrelsen på åbne filer og mappe'
     },
     common: {

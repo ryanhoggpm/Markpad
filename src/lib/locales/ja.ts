@@ -288,7 +288,6 @@ export default {
         refresh: '更新',
         empty: 'Markdown またはテキストファイルがありません',
         unavailable: 'このフォルダーを読み込めませんでした',
-        noFolder: 'フォルダーが開かれていません',
         resizeSplit: '開いているファイルとフォルダーのサイズを変更'
     },
     common: {

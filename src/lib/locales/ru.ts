@@ -264,7 +264,6 @@ export default {
         refresh: 'Обновить',
         empty: 'Здесь нет файлов Markdown или текстовых файлов',
         unavailable: 'Не удалось прочитать эту папку',
-        noFolder: 'Папка не открыта',
         resizeSplit: 'Изменить размер открытых файлов и папки'
     },
     common: {

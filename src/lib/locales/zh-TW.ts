@@ -406,7 +406,6 @@ export default {
         refresh: '重新整理',
         empty: '這裡沒有 Markdown 或文字檔案',
         unavailable: '無法讀取此資料夾',
-        noFolder: '未開啟資料夾',
         resizeSplit: '調整已開啟檔案與資料夾的大小'
     },
     common: {

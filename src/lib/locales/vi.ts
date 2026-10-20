@@ -259,7 +259,6 @@ export default {
         refresh: 'Làm mới',
         empty: 'Không có tệp Markdown hay văn bản nào ở đây',
         unavailable: 'Không đọc được thư mục này',
-        noFolder: 'Chưa mở thư mục nào',
         resizeSplit: 'Đổi kích thước tệp đang mở và thư mục'
     },
     common: {

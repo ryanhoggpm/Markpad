@@ -259,7 +259,6 @@ export default {
         refresh: 'Yenile',
         empty: 'Burada Markdown veya metin dosyası yok',
         unavailable: 'Bu klasör okunamadı',
-        noFolder: 'Açık klasör yok',
         resizeSplit: 'Açık dosyaları ve klasörü yeniden boyutlandır'
     },
     common: {

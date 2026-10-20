@@ -259,7 +259,6 @@ export default {
         refresh: 'Aggiorna',
         empty: 'Nessun file Markdown o di testo qui',
         unavailable: 'Impossibile leggere questa cartella',
-        noFolder: 'Nessuna cartella aperta',
         resizeSplit: 'Ridimensiona file aperti e cartella'
     },
     common: {

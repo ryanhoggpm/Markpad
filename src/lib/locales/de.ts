@@ -259,7 +259,6 @@ export default {
         refresh: 'Aktualisieren',
         empty: 'Keine Markdown- oder Textdateien vorhanden',
         unavailable: 'Dieser Ordner konnte nicht gelesen werden',
-        noFolder: 'Kein Ordner geöffnet',
         resizeSplit: 'Geöffnete Dateien und Ordner vergrößern oder verkleinern'
     },
     common: {

@@ -259,7 +259,6 @@ export default {
         refresh: 'Atualizar',
         empty: 'Nenhum ficheiro Markdown ou de texto aqui',
         unavailable: 'Não foi possível ler esta pasta',
-        noFolder: 'Nenhuma pasta aberta',
         resizeSplit: 'Redimensionar ficheiros abertos e pasta'
     },
     common: {

@@ -348,7 +348,6 @@ export default {
         refresh: '새로 고침',
         empty: 'Markdown 또는 텍스트 파일이 없습니다',
         unavailable: '이 폴더를 읽을 수 없습니다',
-        noFolder: '열린 폴더 없음',
         resizeSplit: '열린 파일과 폴더 크기 조정'
     },
     common: {

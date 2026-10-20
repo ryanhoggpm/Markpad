@@ -259,7 +259,6 @@ export default {
         refresh: 'Vernieuwen',
         empty: 'Geen Markdown- of tekstbestanden hier',
         unavailable: 'Deze map kon niet worden gelezen',
-        noFolder: 'Geen map geopend',
         resizeSplit: 'Geopende bestanden en map vergroten of verkleinen'
     },
     common: {

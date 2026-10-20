@@ -406,7 +406,6 @@ export default {
         refresh: '刷新',
         empty: '这里没有 Markdown 或文本文件',
         unavailable: '无法读取此文件夹',
-        noFolder: '未打开文件夹',
         resizeSplit: '调整已打开文件与文件夹的大小'
     },
     common: {
