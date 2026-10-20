@@ -33,6 +33,15 @@ export default {
         tabPositionTop: 'Trên cùng',
         tabPositionLeft: 'Cột bên trái',
         tabPositionRight: 'Cột bên phải',
+        folderSide: 'Phía thanh bên thư mục',
+        folderSideLeft: 'Trái',
+        folderSideRight: 'Phải',
+        folderSideFollowsTabs: 'Theo cột tab',
+        sidebarStackOrder: 'Thứ tự thanh bên',
+        sidebarStackOpenFilesTop: 'Tệp đang mở ở trên',
+        sidebarStackFolderTop: 'Thư mục ở trên',
+        folderShowAllFiles: 'Hiện mọi tệp trong thư mục',
+        folderShowAllFilesHint: 'Các tệp khác mở bằng ứng dụng mặc định',
         restoreStateOnReopen: 'Khôi phục trạng thái khi mở lại',
         closeWindowWithLastTab: 'Đóng cửa sổ khi đóng thẻ cuối cùng',
         newFileDefaultMode: 'Tệp mới mở trong trình chỉnh sửa',
@@ -242,6 +251,16 @@ export default {
         untitled: 'Chưa đặt tên',
         home: 'Trang chủ',
         resizeColumn: 'Đổi độ rộng cột tab'
+    },
+    folder: {
+        openFiles: 'Tệp đang mở',
+        openFolder: 'Mở thư mục...',
+        closeFolder: 'Đóng thư mục',
+        refresh: 'Làm mới',
+        empty: 'Không có tệp Markdown hay văn bản nào ở đây',
+        unavailable: 'Không đọc được thư mục này',
+        noFolder: 'Chưa mở thư mục nào',
+        resizeSplit: 'Đổi kích thước tệp đang mở và thư mục'
     },
     common: {
         close: 'Đóng',

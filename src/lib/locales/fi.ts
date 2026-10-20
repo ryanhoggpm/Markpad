@@ -33,6 +33,15 @@ export default {
         tabPositionTop: 'Ylhäällä',
         tabPositionLeft: 'Vasen sarake',
         tabPositionRight: 'Oikea sarake',
+        folderSide: 'Kansiopaneelin puoli',
+        folderSideLeft: 'Vasen',
+        folderSideRight: 'Oikea',
+        folderSideFollowsTabs: 'Seuraa välilehtisaraketta',
+        sidebarStackOrder: 'Sivupaneelin järjestys',
+        sidebarStackOpenFilesTop: 'Avoimet tiedostot ylhäällä',
+        sidebarStackFolderTop: 'Kansio ylhäällä',
+        folderShowAllFiles: 'Näytä kaikki kansion tiedostot',
+        folderShowAllFilesHint: 'Muut tiedostot avautuvat oletussovelluksessaan',
         restoreStateOnReopen: 'Palauta tila uudelleen avattaessa',
         closeWindowWithLastTab: 'Sulje ikkuna viimeisen välilehden mukana',
         newFileDefaultMode: 'Uusi tiedosto avautuu editorissa',
@@ -242,6 +251,16 @@ export default {
         untitled: 'Nimetön',
         home: 'Koti',
         resizeColumn: 'Muuta välilehtisarakkeen leveyttä'
+    },
+    folder: {
+        openFiles: 'Avoimet tiedostot',
+        openFolder: 'Avaa kansio...',
+        closeFolder: 'Sulje kansio',
+        refresh: 'Päivitä',
+        empty: 'Täällä ei ole Markdown- tai tekstitiedostoja',
+        unavailable: 'Tätä kansiota ei voitu lukea',
+        noFolder: 'Kansiota ei ole avattu',
+        resizeSplit: 'Muuta avointen tiedostojen ja kansion kokoa'
     },
     common: {
         close: 'Sulje',

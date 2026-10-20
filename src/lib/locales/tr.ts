@@ -33,6 +33,15 @@ export default {
         tabPositionTop: 'Üstte',
         tabPositionLeft: 'Sol Sütun',
         tabPositionRight: 'Sağ Sütun',
+        folderSide: 'Klasör Kenar Çubuğu Tarafı',
+        folderSideLeft: 'Sol',
+        folderSideRight: 'Sağ',
+        folderSideFollowsTabs: 'Sekme sütununu izler',
+        sidebarStackOrder: 'Kenar Çubuğu Sırası',
+        sidebarStackOpenFilesTop: 'Açık Dosyalar Üstte',
+        sidebarStackFolderTop: 'Klasör Üstte',
+        folderShowAllFiles: 'Klasördeki Tüm Dosyaları Göster',
+        folderShowAllFilesHint: 'Diğer dosyalar varsayılan uygulamalarında açılır',
         restoreStateOnReopen: 'Yeniden Açıldığında Durumu Geri Yükle',
         closeWindowWithLastTab: 'Son sekmeyle birlikte pencereyi kapat',
         newFileDefaultMode: 'Yeni dosya editörde açılır',
@@ -242,6 +251,16 @@ export default {
         untitled: 'Başlıksız',
         home: 'Ana Sayfa',
         resizeColumn: 'Sekme sütununu yeniden boyutlandır'
+    },
+    folder: {
+        openFiles: 'Açık Dosyalar',
+        openFolder: 'Klasör Aç...',
+        closeFolder: 'Klasörü Kapat',
+        refresh: 'Yenile',
+        empty: 'Burada Markdown veya metin dosyası yok',
+        unavailable: 'Bu klasör okunamadı',
+        noFolder: 'Açık klasör yok',
+        resizeSplit: 'Açık dosyaları ve klasörü yeniden boyutlandır'
     },
     common: {
         close: 'Kapat',

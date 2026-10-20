@@ -33,6 +33,15 @@ export default {
         tabPositionTop: 'Nahoře',
         tabPositionLeft: 'Levý sloupec',
         tabPositionRight: 'Pravý sloupec',
+        folderSide: 'Strana panelu složky',
+        folderSideLeft: 'Vlevo',
+        folderSideRight: 'Vpravo',
+        folderSideFollowsTabs: 'Řídí se sloupcem karet',
+        sidebarStackOrder: 'Pořadí v postranním panelu',
+        sidebarStackOpenFilesTop: 'Otevřené soubory nahoře',
+        sidebarStackFolderTop: 'Složka nahoře',
+        folderShowAllFiles: 'Zobrazit všechny soubory ve složce',
+        folderShowAllFilesHint: 'Ostatní soubory se otevřou ve výchozí aplikaci',
         restoreStateOnReopen: 'Obnovit stav při opětovném otevření',
         closeWindowWithLastTab: 'Zavřít okno s poslední kartou',
         newFileDefaultMode: 'Nový soubor se otevře v editoru',
@@ -245,6 +254,16 @@ export default {
         untitled: 'Bez názvu',
         home: 'Domů',
         resizeColumn: 'Změnit šířku sloupce karet'
+    },
+    folder: {
+        openFiles: 'Otevřené soubory',
+        openFolder: 'Otevřít složku...',
+        closeFolder: 'Zavřít složku',
+        refresh: 'Obnovit',
+        empty: 'Nejsou zde žádné soubory Markdown ani textové soubory',
+        unavailable: 'Tuto složku nelze načíst',
+        noFolder: 'Není otevřena žádná složka',
+        resizeSplit: 'Změnit velikost otevřených souborů a složky'
     },
     common: {
         close: 'Zavřít',

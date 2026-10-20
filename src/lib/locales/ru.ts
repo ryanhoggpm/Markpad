@@ -37,6 +37,15 @@ export default {
         tabPositionTop: 'Сверху',
         tabPositionLeft: 'Колонка слева',
         tabPositionRight: 'Колонка справа',
+        folderSide: 'Сторона панели папки',
+        folderSideLeft: 'Слева',
+        folderSideRight: 'Справа',
+        folderSideFollowsTabs: 'Следует за колонкой вкладок',
+        sidebarStackOrder: 'Порядок на боковой панели',
+        sidebarStackOpenFilesTop: 'Открытые файлы сверху',
+        sidebarStackFolderTop: 'Папка сверху',
+        folderShowAllFiles: 'Показывать все файлы в папке',
+        folderShowAllFilesHint: 'Остальные файлы открываются в приложении по умолчанию',
         restoreStateOnReopen: 'Восстановить состояние при повторном открытии',
         closeWindowWithLastTab: 'Закрывать окно вместе с последней вкладкой',
         newFileDefaultMode: 'Новый файл открывается в редакторе',
@@ -247,6 +256,16 @@ export default {
         untitled: 'Без названия',
         home: 'Главная',
         resizeColumn: 'Изменить ширину колонки вкладок'
+    },
+    folder: {
+        openFiles: 'Открытые файлы',
+        openFolder: 'Открыть папку...',
+        closeFolder: 'Закрыть папку',
+        refresh: 'Обновить',
+        empty: 'Здесь нет файлов Markdown или текстовых файлов',
+        unavailable: 'Не удалось прочитать эту папку',
+        noFolder: 'Папка не открыта',
+        resizeSplit: 'Изменить размер открытых файлов и папки'
     },
     common: {
         close: 'Закрыть',

@@ -33,6 +33,15 @@ export default {
         tabPositionTop: 'Oben',
         tabPositionLeft: 'Linke Spalte',
         tabPositionRight: 'Rechte Spalte',
+        folderSide: 'Seite der Ordnerleiste',
+        folderSideLeft: 'Links',
+        folderSideRight: 'Rechts',
+        folderSideFollowsTabs: 'Folgt der Tab-Spalte',
+        sidebarStackOrder: 'Reihenfolge in der Seitenleiste',
+        sidebarStackOpenFilesTop: 'Geöffnete Dateien oben',
+        sidebarStackFolderTop: 'Ordner oben',
+        folderShowAllFiles: 'Alle Dateien im Ordner anzeigen',
+        folderShowAllFilesHint: 'Andere Dateien öffnen sich in ihrer Standard-App',
         restoreStateOnReopen: 'Zustand beim erneuten Öffnen wiederherstellen',
         closeWindowWithLastTab: 'Fenster mit dem letzten Tab schließen',
         newFileDefaultMode: 'Neue Datei im Editor öffnen',
@@ -242,6 +251,16 @@ export default {
         untitled: 'Unbenannt',
         home: 'Startseite',
         resizeColumn: 'Breite der Tab-Spalte ändern'
+    },
+    folder: {
+        openFiles: 'Geöffnete Dateien',
+        openFolder: 'Ordner öffnen...',
+        closeFolder: 'Ordner schließen',
+        refresh: 'Aktualisieren',
+        empty: 'Keine Markdown- oder Textdateien vorhanden',
+        unavailable: 'Dieser Ordner konnte nicht gelesen werden',
+        noFolder: 'Kein Ordner geöffnet',
+        resizeSplit: 'Geöffnete Dateien und Ordner vergrößern oder verkleinern'
     },
     common: {
         close: 'Schließen',

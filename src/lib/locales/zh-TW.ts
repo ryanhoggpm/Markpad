@@ -57,6 +57,15 @@ export default {
         tabPositionTop: '頂部',
         tabPositionLeft: '左側欄',
         tabPositionRight: '右側欄',
+        folderSide: '資料夾側欄位置',
+        folderSideLeft: '左側',
+        folderSideRight: '右側',
+        folderSideFollowsTabs: '跟隨分頁欄',
+        sidebarStackOrder: '側欄上下順序',
+        sidebarStackOpenFilesTop: '已開啟檔案在上',
+        sidebarStackFolderTop: '資料夾在上',
+        folderShowAllFiles: '顯示資料夾內所有檔案',
+        folderShowAllFilesHint: '其他檔案以預設應用程式開啟',
         restoreStateOnReopen: '重新開啟時還原狀態',
         closeWindowWithLastTab: '關閉最後一個分頁時關閉視窗',
         openFileMode: '開啟既有檔案時',
@@ -389,6 +398,16 @@ export default {
         untitled: '未命名',
         home: '首頁',
         resizeColumn: '調整分頁欄寬度'
+    },
+    folder: {
+        openFiles: '已開啟的檔案',
+        openFolder: '開啟資料夾...',
+        closeFolder: '關閉資料夾',
+        refresh: '重新整理',
+        empty: '這裡沒有 Markdown 或文字檔案',
+        unavailable: '無法讀取此資料夾',
+        noFolder: '未開啟資料夾',
+        resizeSplit: '調整已開啟檔案與資料夾的大小'
     },
     common: {
         close: '關閉',

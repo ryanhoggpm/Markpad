@@ -33,6 +33,15 @@ export default {
         tabPositionTop: 'Πάνω',
         tabPositionLeft: 'Αριστερή στήλη',
         tabPositionRight: 'Δεξιά στήλη',
+        folderSide: 'Πλευρά πλαισίου φακέλου',
+        folderSideLeft: 'Αριστερά',
+        folderSideRight: 'Δεξιά',
+        folderSideFollowsTabs: 'Ακολουθεί τη στήλη καρτελών',
+        sidebarStackOrder: 'Σειρά στην πλαϊνή στήλη',
+        sidebarStackOpenFilesTop: 'Ανοιχτά αρχεία επάνω',
+        sidebarStackFolderTop: 'Φάκελος επάνω',
+        folderShowAllFiles: 'Εμφάνιση όλων των αρχείων του φακέλου',
+        folderShowAllFilesHint: 'Τα άλλα αρχεία ανοίγουν στην προεπιλεγμένη εφαρμογή τους',
         restoreStateOnReopen: 'Επαναφορά κατάστασης κατά την επανεκκίνηση',
         closeWindowWithLastTab: 'Κλείσιμο παραθύρου με την τελευταία καρτέλα',
         newFileDefaultMode: 'Νέο αρχείο ανοίγει στον επεξεργαστή',
@@ -242,6 +251,16 @@ export default {
         untitled: 'Χωρίς τίτλο',
         home: 'Αρχική',
         resizeColumn: 'Αλλαγή πλάτους στήλης καρτελών'
+    },
+    folder: {
+        openFiles: 'Ανοιχτά αρχεία',
+        openFolder: 'Άνοιγμα φακέλου...',
+        closeFolder: 'Κλείσιμο φακέλου',
+        refresh: 'Ανανέωση',
+        empty: 'Δεν υπάρχουν αρχεία Markdown ή κειμένου εδώ',
+        unavailable: 'Δεν ήταν δυνατή η ανάγνωση αυτού του φακέλου',
+        noFolder: 'Δεν υπάρχει ανοιχτός φάκελος',
+        resizeSplit: 'Αλλαγή μεγέθους ανοιχτών αρχείων και φακέλου'
     },
     common: {
         close: 'Κλείσιμο',

@@ -33,6 +33,15 @@ export default {
         tabPositionTop: 'Överst',
         tabPositionLeft: 'Vänster kolumn',
         tabPositionRight: 'Höger kolumn',
+        folderSide: 'Mappsidofältets sida',
+        folderSideLeft: 'Vänster',
+        folderSideRight: 'Höger',
+        folderSideFollowsTabs: 'Följer flikkolumnen',
+        sidebarStackOrder: 'Ordning i sidofältet',
+        sidebarStackOpenFilesTop: 'Öppna filer överst',
+        sidebarStackFolderTop: 'Mapp överst',
+        folderShowAllFiles: 'Visa alla filer i mappen',
+        folderShowAllFilesHint: 'Andra filer öppnas i sin standardapp',
         restoreStateOnReopen: 'Återställ tillstånd vid återöppning',
         closeWindowWithLastTab: 'Stäng fönstret med sista fliken',
         newFileDefaultMode: 'Ny fil öppnas i redigeraren',
@@ -242,6 +251,16 @@ export default {
         untitled: 'Namnlös',
         home: 'Hem',
         resizeColumn: 'Ändra bredd på flikkolumnen'
+    },
+    folder: {
+        openFiles: 'Öppna filer',
+        openFolder: 'Öppna mapp...',
+        closeFolder: 'Stäng mapp',
+        refresh: 'Uppdatera',
+        empty: 'Inga Markdown- eller textfiler här',
+        unavailable: 'Mappen kunde inte läsas',
+        noFolder: 'Ingen mapp öppen',
+        resizeSplit: 'Ändra storlek på öppna filer och mapp'
     },
     common: {
         close: 'Stäng',

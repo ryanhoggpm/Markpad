@@ -33,6 +33,15 @@ export default {
         tabPositionTop: 'Øverst',
         tabPositionLeft: 'Venstre kolonne',
         tabPositionRight: 'Høyre kolonne',
+        folderSide: 'Mappepanelets side',
+        folderSideLeft: 'Venstre',
+        folderSideRight: 'Høyre',
+        folderSideFollowsTabs: 'Følger fanekolonnen',
+        sidebarStackOrder: 'Rekkefølge i sidepanelet',
+        sidebarStackOpenFilesTop: 'Åpne filer øverst',
+        sidebarStackFolderTop: 'Mappe øverst',
+        folderShowAllFiles: 'Vis alle filer i mappen',
+        folderShowAllFilesHint: 'Andre filer åpnes i standardappen sin',
         restoreStateOnReopen: 'Gjenopprett tilstand ved gjenåpning',
         closeWindowWithLastTab: 'Lukk vinduet med den siste fanen',
         newFileDefaultMode: 'Ny fil åbnes i editor',
@@ -242,6 +251,16 @@ export default {
         untitled: 'Uten tittel',
         home: 'Hjem',
         resizeColumn: 'Endre bredden på fanekolonnen'
+    },
+    folder: {
+        openFiles: 'Åpne filer',
+        openFolder: 'Åpne mappe...',
+        closeFolder: 'Lukk mappe',
+        refresh: 'Oppdater',
+        empty: 'Ingen Markdown- eller tekstfiler her',
+        unavailable: 'Mappen kunne ikke leses',
+        noFolder: 'Ingen mappe åpen',
+        resizeSplit: 'Endre størrelse på åpne filer og mappe'
     },
     common: {
         close: 'Lukk',

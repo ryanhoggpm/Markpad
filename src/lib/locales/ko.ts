@@ -36,6 +36,15 @@ export default {
         tabPositionTop: '위쪽',
         tabPositionLeft: '왼쪽 열',
         tabPositionRight: '오른쪽 열',
+        folderSide: '폴더 사이드바 위치',
+        folderSideLeft: '왼쪽',
+        folderSideRight: '오른쪽',
+        folderSideFollowsTabs: '탭 열을 따름',
+        sidebarStackOrder: '사이드바 쌓기 순서',
+        sidebarStackOpenFilesTop: '열린 파일 위로',
+        sidebarStackFolderTop: '폴더 위로',
+        folderShowAllFiles: '폴더의 모든 파일 표시',
+        folderShowAllFilesHint: '다른 파일은 기본 앱에서 열립니다',
         restoreStateOnReopen: '다시 열 때 상태 복원',
         closeWindowWithLastTab: '마지막 탭을 닫으면 창 닫기',
         newFileDefaultMode: '새 파일을 편집기에서 열기',
@@ -331,6 +340,16 @@ export default {
         untitled: '제목 없음',
         home: '홈',
         resizeColumn: '탭 열 크기 조정'
+    },
+    folder: {
+        openFiles: '열린 파일',
+        openFolder: '폴더 열기...',
+        closeFolder: '폴더 닫기',
+        refresh: '새로 고침',
+        empty: 'Markdown 또는 텍스트 파일이 없습니다',
+        unavailable: '이 폴더를 읽을 수 없습니다',
+        noFolder: '열린 폴더 없음',
+        resizeSplit: '열린 파일과 폴더 크기 조정'
     },
     common: {
         close: '닫기',

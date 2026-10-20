@@ -33,6 +33,15 @@ export default {
         tabPositionTop: 'Hore',
         tabPositionLeft: 'Ľavý stĺpec',
         tabPositionRight: 'Pravý stĺpec',
+        folderSide: 'Strana panela priečinka',
+        folderSideLeft: 'Vľavo',
+        folderSideRight: 'Vpravo',
+        folderSideFollowsTabs: 'Riadi sa stĺpcom kariet',
+        sidebarStackOrder: 'Poradie v bočnom paneli',
+        sidebarStackOpenFilesTop: 'Otvorené súbory hore',
+        sidebarStackFolderTop: 'Priečinok hore',
+        folderShowAllFiles: 'Zobraziť všetky súbory v priečinku',
+        folderShowAllFilesHint: 'Ostatné súbory sa otvoria v predvolenej aplikácii',
         restoreStateOnReopen: 'Obnoviť stav pri opätovnom otvorení',
         closeWindowWithLastTab: 'Zatvoriť okno s poslednou kartou',
         newFileDefaultMode: 'Nový súbor sa otvorí v editore',
@@ -242,6 +251,16 @@ export default {
         untitled: 'Bez názvu',
         home: 'Domov',
         resizeColumn: 'Zmeniť šírku stĺpca kariet'
+    },
+    folder: {
+        openFiles: 'Otvorené súbory',
+        openFolder: 'Otvoriť priečinok...',
+        closeFolder: 'Zatvoriť priečinok',
+        refresh: 'Obnoviť',
+        empty: 'Nie sú tu žiadne súbory Markdown ani textové súbory',
+        unavailable: 'Tento priečinok sa nepodarilo načítať',
+        noFolder: 'Nie je otvorený žiadny priečinok',
+        resizeSplit: 'Zmeniť veľkosť otvorených súborov a priečinka'
     },
     common: {
         close: 'Zatvoriť',

@@ -35,6 +35,15 @@ export default {
         tabPositionTop: 'Na górze',
         tabPositionLeft: 'Lewa kolumna',
         tabPositionRight: 'Prawa kolumna',
+        folderSide: 'Strona panelu folderu',
+        folderSideLeft: 'Lewa',
+        folderSideRight: 'Prawa',
+        folderSideFollowsTabs: 'Zgodnie z kolumną kart',
+        sidebarStackOrder: 'Kolejność w panelu bocznym',
+        sidebarStackOpenFilesTop: 'Otwarte pliki na górze',
+        sidebarStackFolderTop: 'Folder na górze',
+        folderShowAllFiles: 'Pokaż wszystkie pliki w folderze',
+        folderShowAllFilesHint: 'Pozostałe pliki otwierają się w domyślnej aplikacji',
         restoreStateOnReopen: 'Przywróć stan przy ponownym otwarciu',
         closeWindowWithLastTab: 'Zamknij okno razem z ostatnią kartą',
         newFileDefaultMode: 'Nowy plik otwiera się w edytorze',
@@ -258,6 +267,16 @@ export default {
         untitled: 'Bez tytułu',
         home: 'Strona główna',
         resizeColumn: 'Zmień szerokość kolumny kart'
+    },
+    folder: {
+        openFiles: 'Otwarte pliki',
+        openFolder: 'Otwórz folder...',
+        closeFolder: 'Zamknij folder',
+        refresh: 'Odśwież',
+        empty: 'Brak plików Markdown ani tekstowych',
+        unavailable: 'Nie można odczytać tego folderu',
+        noFolder: 'Brak otwartego folderu',
+        resizeSplit: 'Zmień rozmiar otwartych plików i folderu'
     },
     common: {
         close: 'Zamknij',

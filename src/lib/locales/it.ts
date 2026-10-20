@@ -33,6 +33,15 @@ export default {
         tabPositionTop: 'In alto',
         tabPositionLeft: 'Colonna sinistra',
         tabPositionRight: 'Colonna destra',
+        folderSide: 'Lato del pannello cartella',
+        folderSideLeft: 'Sinistra',
+        folderSideRight: 'Destra',
+        folderSideFollowsTabs: 'Segue la colonna delle schede',
+        sidebarStackOrder: 'Ordine nella barra laterale',
+        sidebarStackOpenFilesTop: 'File aperti in alto',
+        sidebarStackFolderTop: 'Cartella in alto',
+        folderShowAllFiles: 'Mostra tutti i file nella cartella',
+        folderShowAllFilesHint: 'Gli altri file si aprono nella loro app predefinita',
         restoreStateOnReopen: 'Ripristina stato alla riapertura',
         closeWindowWithLastTab: 'Chiudi la finestra con l\'ultima scheda',
         newFileDefaultMode: 'Nuovo file apre nell\'editor',
@@ -242,6 +251,16 @@ export default {
         untitled: 'Senza titolo',
         home: 'Home',
         resizeColumn: 'Ridimensiona colonna schede'
+    },
+    folder: {
+        openFiles: 'File aperti',
+        openFolder: 'Apri cartella...',
+        closeFolder: 'Chiudi cartella',
+        refresh: 'Aggiorna',
+        empty: 'Nessun file Markdown o di testo qui',
+        unavailable: 'Impossibile leggere questa cartella',
+        noFolder: 'Nessuna cartella aperta',
+        resizeSplit: 'Ridimensiona file aperti e cartella'
     },
     common: {
         close: 'Chiudi',

@@ -34,6 +34,15 @@ export default {
         tabPositionTop: '上',
         tabPositionLeft: '左の列',
         tabPositionRight: '右の列',
+        folderSide: 'フォルダーサイドバーの位置',
+        folderSideLeft: '左',
+        folderSideRight: '右',
+        folderSideFollowsTabs: 'タブ列に合わせる',
+        sidebarStackOrder: 'サイドバーの並び順',
+        sidebarStackOpenFilesTop: '開いているファイルを上',
+        sidebarStackFolderTop: 'フォルダーを上',
+        folderShowAllFiles: 'フォルダー内のすべてのファイルを表示',
+        folderShowAllFilesHint: 'その他のファイルは既定のアプリで開きます',
         restoreStateOnReopen: '再オープン時に状態を復元',
         closeWindowWithLastTab: '最後のタブを閉じたらウィンドウも閉じる',
         newFileDefaultMode: '新しいファイルをエディタで開く',
@@ -271,6 +280,16 @@ export default {
         untitled: '名前なし',
         home: 'ホーム',
         resizeColumn: 'タブ列の幅を変更'
+    },
+    folder: {
+        openFiles: '開いているファイル',
+        openFolder: 'フォルダーを開く...',
+        closeFolder: 'フォルダーを閉じる',
+        refresh: '更新',
+        empty: 'Markdown またはテキストファイルがありません',
+        unavailable: 'このフォルダーを読み込めませんでした',
+        noFolder: 'フォルダーが開かれていません',
+        resizeSplit: '開いているファイルとフォルダーのサイズを変更'
     },
     common: {
         close: '閉じる',

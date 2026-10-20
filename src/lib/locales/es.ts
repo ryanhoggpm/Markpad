@@ -33,6 +33,15 @@ export default {
         tabPositionTop: 'Arriba',
         tabPositionLeft: 'Columna izquierda',
         tabPositionRight: 'Columna derecha',
+        folderSide: 'Lado del panel de carpeta',
+        folderSideLeft: 'Izquierda',
+        folderSideRight: 'Derecha',
+        folderSideFollowsTabs: 'Sigue a la columna de pestañas',
+        sidebarStackOrder: 'Orden en el panel lateral',
+        sidebarStackOpenFilesTop: 'Archivos abiertos arriba',
+        sidebarStackFolderTop: 'Carpeta arriba',
+        folderShowAllFiles: 'Mostrar todos los archivos de la carpeta',
+        folderShowAllFilesHint: 'Los demás archivos se abren en su aplicación predeterminada',
         restoreStateOnReopen: 'Restaurar estado al reabrir',
         closeWindowWithLastTab: 'Cerrar la ventana con la última pestaña',
         newFileDefaultMode: 'Nuevo archivo se abre en el editor',
@@ -242,6 +251,16 @@ export default {
         untitled: 'Sin título',
         home: 'Inicio',
         resizeColumn: 'Cambiar ancho de la columna de pestañas'
+    },
+    folder: {
+        openFiles: 'Archivos abiertos',
+        openFolder: 'Abrir carpeta...',
+        closeFolder: 'Cerrar carpeta',
+        refresh: 'Actualizar',
+        empty: 'No hay archivos Markdown ni de texto aquí',
+        unavailable: 'No se pudo leer esta carpeta',
+        noFolder: 'No hay ninguna carpeta abierta',
+        resizeSplit: 'Cambiar tamaño de archivos abiertos y carpeta'
     },
     common: {
         close: 'Cerrar',

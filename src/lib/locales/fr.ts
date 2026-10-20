@@ -33,6 +33,15 @@ export default {
         tabPositionTop: 'En haut',
         tabPositionLeft: 'Colonne de gauche',
         tabPositionRight: 'Colonne de droite',
+        folderSide: 'Côté du panneau de dossier',
+        folderSideLeft: 'Gauche',
+        folderSideRight: 'Droite',
+        folderSideFollowsTabs: 'Suit la colonne des onglets',
+        sidebarStackOrder: 'Ordre dans le panneau latéral',
+        sidebarStackOpenFilesTop: 'Fichiers ouverts en haut',
+        sidebarStackFolderTop: 'Dossier en haut',
+        folderShowAllFiles: 'Afficher tous les fichiers du dossier',
+        folderShowAllFilesHint: 'Les autres fichiers s\'ouvrent dans leur application par défaut',
         restoreStateOnReopen: 'Restaurer l\'état à la réouverture',
         closeWindowWithLastTab: 'Fermer la fenêtre avec le dernier onglet',
         newFileDefaultMode: 'Nouveau fichier s\'ouvre dans l\'éditeur',
@@ -242,6 +251,16 @@ export default {
         untitled: 'Sans titre',
         home: 'Accueil',
         resizeColumn: 'Redimensionner la colonne des onglets'
+    },
+    folder: {
+        openFiles: 'Fichiers ouverts',
+        openFolder: 'Ouvrir un dossier...',
+        closeFolder: 'Fermer le dossier',
+        refresh: 'Actualiser',
+        empty: 'Aucun fichier Markdown ou texte ici',
+        unavailable: 'Impossible de lire ce dossier',
+        noFolder: 'Aucun dossier ouvert',
+        resizeSplit: 'Redimensionner les fichiers ouverts et le dossier'
     },
     common: {
         close: 'Fermer',

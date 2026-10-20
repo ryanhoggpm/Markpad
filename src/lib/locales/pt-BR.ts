@@ -33,6 +33,15 @@ export default {
         tabPositionTop: 'Topo',
         tabPositionLeft: 'Coluna à esquerda',
         tabPositionRight: 'Coluna à direita',
+        folderSide: 'Lado da barra lateral de pasta',
+        folderSideLeft: 'Esquerda',
+        folderSideRight: 'Direita',
+        folderSideFollowsTabs: 'Segue a coluna de abas',
+        sidebarStackOrder: 'Ordem na barra lateral',
+        sidebarStackOpenFilesTop: 'Arquivos abertos em cima',
+        sidebarStackFolderTop: 'Pasta em cima',
+        folderShowAllFiles: 'Mostrar todos os arquivos da pasta',
+        folderShowAllFilesHint: 'Outros arquivos abrem no aplicativo padrão',
         restoreStateOnReopen: 'Restaurar estado ao reabrir',
         closeWindowWithLastTab: 'Fechar a janela com a última aba',
         newFileDefaultMode: 'Novo arquivo abre no editor',
@@ -242,6 +251,16 @@ export default {
         untitled: 'Sem título',
         home: 'Início',
         resizeColumn: 'Redimensionar coluna de abas'
+    },
+    folder: {
+        openFiles: 'Arquivos abertos',
+        openFolder: 'Abrir pasta...',
+        closeFolder: 'Fechar pasta',
+        refresh: 'Atualizar',
+        empty: 'Nenhum arquivo Markdown ou de texto aqui',
+        unavailable: 'Não foi possível ler esta pasta',
+        noFolder: 'Nenhuma pasta aberta',
+        resizeSplit: 'Redimensionar arquivos abertos e pasta'
     },
     common: {
         close: 'Fechar',

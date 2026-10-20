@@ -48,6 +48,15 @@ export default {
         tabPositionTop: '顶部',
         tabPositionLeft: '左侧栏',
         tabPositionRight: '右侧栏',
+        folderSide: '文件夹侧栏位置',
+        folderSideLeft: '左侧',
+        folderSideRight: '右侧',
+        folderSideFollowsTabs: '跟随标签栏',
+        sidebarStackOrder: '侧栏上下顺序',
+        sidebarStackOpenFilesTop: '已打开文件在上',
+        sidebarStackFolderTop: '文件夹在上',
+        folderShowAllFiles: '显示文件夹内所有文件',
+        folderShowAllFilesHint: '其他文件用默认应用打开',
         restoreStateOnReopen: '重新打开时恢复标签页',
         closeWindowWithLastTab: '关闭最后一个标签时关闭窗口',
         openFileMode: '打开已有文件时',
@@ -389,6 +398,16 @@ export default {
         untitled: '无标题',
         home: '主页',
         resizeColumn: '调整标签栏宽度'
+    },
+    folder: {
+        openFiles: '已打开的文件',
+        openFolder: '打开文件夹...',
+        closeFolder: '关闭文件夹',
+        refresh: '刷新',
+        empty: '这里没有 Markdown 或文本文件',
+        unavailable: '无法读取此文件夹',
+        noFolder: '未打开文件夹',
+        resizeSplit: '调整已打开文件与文件夹的大小'
     },
     common: {
         close: '关闭',

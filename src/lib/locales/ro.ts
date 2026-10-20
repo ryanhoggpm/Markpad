@@ -33,6 +33,15 @@ export default {
         tabPositionTop: 'Sus',
         tabPositionLeft: 'Coloana din stânga',
         tabPositionRight: 'Coloana din dreapta',
+        folderSide: 'Partea panoului de folder',
+        folderSideLeft: 'Stânga',
+        folderSideRight: 'Dreapta',
+        folderSideFollowsTabs: 'Urmează coloana de file',
+        sidebarStackOrder: 'Ordinea în bara laterală',
+        sidebarStackOpenFilesTop: 'Fișierele deschise sus',
+        sidebarStackFolderTop: 'Folderul sus',
+        folderShowAllFiles: 'Afișează toate fișierele din folder',
+        folderShowAllFilesHint: 'Celelalte fișiere se deschid în aplicația implicită',
         restoreStateOnReopen: 'Restaurare stare la redeschidere',
         closeWindowWithLastTab: 'Închide fereastra odată cu ultima filă',
         newFileDefaultMode: 'Fișier nou se deschide în editor',
@@ -242,6 +251,16 @@ export default {
         untitled: 'Fără titlu',
         home: 'Acasă',
         resizeColumn: 'Redimensionează coloana de file'
+    },
+    folder: {
+        openFiles: 'Fișiere deschise',
+        openFolder: 'Deschidere folder...',
+        closeFolder: 'Închidere folder',
+        refresh: 'Reîmprospătare',
+        empty: 'Nu există fișiere Markdown sau text aici',
+        unavailable: 'Folderul nu a putut fi citit',
+        noFolder: 'Niciun folder deschis',
+        resizeSplit: 'Redimensionează fișierele deschise și folderul'
     },
     common: {
         close: 'Închidere',

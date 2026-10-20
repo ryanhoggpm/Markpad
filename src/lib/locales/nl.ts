@@ -33,6 +33,15 @@ export default {
         tabPositionTop: 'Boven',
         tabPositionLeft: 'Linkerkolom',
         tabPositionRight: 'Rechterkolom',
+        folderSide: 'Kant van mapzijbalk',
+        folderSideLeft: 'Links',
+        folderSideRight: 'Rechts',
+        folderSideFollowsTabs: 'Volgt de tabbladkolom',
+        sidebarStackOrder: 'Volgorde in zijbalk',
+        sidebarStackOpenFilesTop: 'Geopende bestanden boven',
+        sidebarStackFolderTop: 'Map boven',
+        folderShowAllFiles: 'Alle bestanden in map tonen',
+        folderShowAllFilesHint: 'Andere bestanden openen in hun standaard-app',
         restoreStateOnReopen: 'Herstel status bij heropenen',
         closeWindowWithLastTab: 'Venster sluiten met het laatste tabblad',
         newFileDefaultMode: 'Nieuw bestand opent in editor',
@@ -242,6 +251,16 @@ export default {
         untitled: 'Naamloos',
         home: 'Startpagina',
         resizeColumn: 'Tabbladkolom vergroten of verkleinen'
+    },
+    folder: {
+        openFiles: 'Geopende bestanden',
+        openFolder: 'Map openen...',
+        closeFolder: 'Map sluiten',
+        refresh: 'Vernieuwen',
+        empty: 'Geen Markdown- of tekstbestanden hier',
+        unavailable: 'Deze map kon niet worden gelezen',
+        noFolder: 'Geen map geopend',
+        resizeSplit: 'Geopende bestanden en map vergroten of verkleinen'
     },
     common: {
         close: 'Sluiten',

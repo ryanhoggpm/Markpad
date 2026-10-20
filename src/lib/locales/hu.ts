@@ -33,6 +33,15 @@ export default {
         tabPositionTop: 'Felül',
         tabPositionLeft: 'Bal oldali oszlop',
         tabPositionRight: 'Jobb oldali oszlop',
+        folderSide: 'Mappapanel oldala',
+        folderSideLeft: 'Bal',
+        folderSideRight: 'Jobb',
+        folderSideFollowsTabs: 'A laposzlopot követi',
+        sidebarStackOrder: 'Oldalsáv sorrendje',
+        sidebarStackOpenFilesTop: 'Megnyitott fájlok felül',
+        sidebarStackFolderTop: 'Mappa felül',
+        folderShowAllFiles: 'A mappa összes fájljának megjelenítése',
+        folderShowAllFilesHint: 'A többi fájl az alapértelmezett alkalmazásában nyílik meg',
         restoreStateOnReopen: 'Állapot visszaállítása újranyitáskor',
         closeWindowWithLastTab: 'Ablak bezárása az utolsó lappal',
         newFileDefaultMode: 'Új fájl megnyílik a szerkesztőben',
@@ -242,6 +251,16 @@ export default {
         untitled: 'Névtelen',
         home: 'Kezdőlap',
         resizeColumn: 'Laposzlop átméretezése'
+    },
+    folder: {
+        openFiles: 'Megnyitott fájlok',
+        openFolder: 'Mappa megnyitása...',
+        closeFolder: 'Mappa bezárása',
+        refresh: 'Frissítés',
+        empty: 'Itt nincs Markdown- vagy szövegfájl',
+        unavailable: 'A mappa nem olvasható',
+        noFolder: 'Nincs megnyitott mappa',
+        resizeSplit: 'Megnyitott fájlok és mappa átméretezése'
     },
     common: {
         close: 'Bezárás',

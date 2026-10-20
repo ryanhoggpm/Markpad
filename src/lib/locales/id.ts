@@ -33,6 +33,15 @@ export default {
         tabPositionTop: 'Atas',
         tabPositionLeft: 'Kolom Kiri',
         tabPositionRight: 'Kolom Kanan',
+        folderSide: 'Sisi Bilah Samping Folder',
+        folderSideLeft: 'Kiri',
+        folderSideRight: 'Kanan',
+        folderSideFollowsTabs: 'Mengikuti kolom tab',
+        sidebarStackOrder: 'Urutan Bilah Samping',
+        sidebarStackOpenFilesTop: 'Berkas Terbuka di Atas',
+        sidebarStackFolderTop: 'Folder di Atas',
+        folderShowAllFiles: 'Tampilkan Semua Berkas di Folder',
+        folderShowAllFilesHint: 'Berkas lain dibuka di aplikasi bawaannya',
         restoreStateOnReopen: 'Pulihkan Status saat Dibuka Kembali',
         closeWindowWithLastTab: 'Tutup Jendela bersama Tab Terakhir',
         newFileDefaultMode: 'File baru terbuka di editor',
@@ -242,6 +251,16 @@ export default {
         untitled: 'Tidak Berjudul',
         home: 'Beranda',
         resizeColumn: 'Ubah lebar kolom tab'
+    },
+    folder: {
+        openFiles: 'Berkas Terbuka',
+        openFolder: 'Buka Folder...',
+        closeFolder: 'Tutup Folder',
+        refresh: 'Segarkan',
+        empty: 'Tidak ada berkas Markdown atau teks di sini',
+        unavailable: 'Folder ini tidak dapat dibaca',
+        noFolder: 'Tidak ada folder yang terbuka',
+        resizeSplit: 'Ubah ukuran berkas terbuka dan folder'
     },
     common: {
         close: 'Tutup',
