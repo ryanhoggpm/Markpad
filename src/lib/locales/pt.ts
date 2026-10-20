@@ -29,6 +29,10 @@ export default {
         previewOccurrences: 'Realçar correspondências da seleção',
         previewAnnotations: 'Realce temporário (menu de contexto)',
         showTabs: 'Mostrar separadores',
+        tabPosition: 'Posição dos separadores',
+        tabPositionTop: 'Topo',
+        tabPositionLeft: 'Coluna à esquerda',
+        tabPositionRight: 'Coluna à direita',
         restoreStateOnReopen: 'Restaurar estado ao reabrir',
         closeWindowWithLastTab: 'Fechar a janela com o último separador',
         newFileDefaultMode: 'Novo ficheiro abre no editor',
@@ -236,7 +240,8 @@ export default {
     },
     tabs: {
         untitled: 'Sem título',
-        home: 'Início'
+        home: 'Início',
+        resizeColumn: 'Redimensionar coluna de separadores'
     },
     common: {
         close: 'Fechar',

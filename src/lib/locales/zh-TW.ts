@@ -53,6 +53,10 @@ export default {
         previewNewlineBreaks: '回車即換行',
         previewNewlineBreaksHint: '關：段內回車顯示為空格，行尾兩個空格才換行',
         showTabs: '顯示分頁欄',
+        tabPosition: '分頁欄位置',
+        tabPositionTop: '頂部',
+        tabPositionLeft: '左側欄',
+        tabPositionRight: '右側欄',
         restoreStateOnReopen: '重新開啟時還原狀態',
         closeWindowWithLastTab: '關閉最後一個分頁時關閉視窗',
         openFileMode: '開啟既有檔案時',
@@ -383,7 +387,8 @@ export default {
     },
     tabs: {
         untitled: '未命名',
-        home: '首頁'
+        home: '首頁',
+        resizeColumn: '調整分頁欄寬度'
     },
     common: {
         close: '關閉',

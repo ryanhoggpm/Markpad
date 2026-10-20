@@ -31,6 +31,10 @@ export default {
         previewOccurrences: 'Wyróżniaj wystąpienia zaznaczenia',
         previewAnnotations: 'Tymczasowe wyróżnienie (menu kontekstowe)',
         showTabs: 'Pokaż karty',
+        tabPosition: 'Położenie kart',
+        tabPositionTop: 'Na górze',
+        tabPositionLeft: 'Lewa kolumna',
+        tabPositionRight: 'Prawa kolumna',
         restoreStateOnReopen: 'Przywróć stan przy ponownym otwarciu',
         closeWindowWithLastTab: 'Zamknij okno razem z ostatnią kartą',
         newFileDefaultMode: 'Nowy plik otwiera się w edytorze',
@@ -252,7 +256,8 @@ export default {
     },
     tabs: {
         untitled: 'Bez tytułu',
-        home: 'Strona główna'
+        home: 'Strona główna',
+        resizeColumn: 'Zmień szerokość kolumny kart'
     },
     common: {
         close: 'Zamknij',

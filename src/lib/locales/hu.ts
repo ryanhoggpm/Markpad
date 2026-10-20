@@ -29,6 +29,10 @@ export default {
         previewOccurrences: 'Kijelöléssel egyező szavak kiemelése',
         previewAnnotations: 'Ideiglenes kiemelés (helyi menü)',
         showTabs: 'Lapok megjelenítése',
+        tabPosition: 'Lapok helye',
+        tabPositionTop: 'Felül',
+        tabPositionLeft: 'Bal oldali oszlop',
+        tabPositionRight: 'Jobb oldali oszlop',
         restoreStateOnReopen: 'Állapot visszaállítása újranyitáskor',
         closeWindowWithLastTab: 'Ablak bezárása az utolsó lappal',
         newFileDefaultMode: 'Új fájl megnyílik a szerkesztőben',
@@ -236,7 +240,8 @@ export default {
     },
     tabs: {
         untitled: 'Névtelen',
-        home: 'Kezdőlap'
+        home: 'Kezdőlap',
+        resizeColumn: 'Laposzlop átméretezése'
     },
     common: {
         close: 'Bezárás',

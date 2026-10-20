@@ -29,6 +29,10 @@ export default {
         previewOccurrences: 'Uthev forekomster av markeringen',
         previewAnnotations: 'Midlertidig utheving (høyreklikkmeny)',
         showTabs: 'Vis faner',
+        tabPosition: 'Fanenes plassering',
+        tabPositionTop: 'Øverst',
+        tabPositionLeft: 'Venstre kolonne',
+        tabPositionRight: 'Høyre kolonne',
         restoreStateOnReopen: 'Gjenopprett tilstand ved gjenåpning',
         closeWindowWithLastTab: 'Lukk vinduet med den siste fanen',
         newFileDefaultMode: 'Ny fil åbnes i editor',
@@ -236,7 +240,8 @@ export default {
     },
     tabs: {
         untitled: 'Uten tittel',
-        home: 'Hjem'
+        home: 'Hjem',
+        resizeColumn: 'Endre bredden på fanekolonnen'
     },
     common: {
         close: 'Lukk',

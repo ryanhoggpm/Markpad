@@ -29,6 +29,10 @@ export default {
         previewOccurrences: 'Korosta valinnan osumat',
         previewAnnotations: 'Väliaikainen korostus (pikavalikko)',
         showTabs: 'Näytä välilehdet',
+        tabPosition: 'Välilehtien sijainti',
+        tabPositionTop: 'Ylhäällä',
+        tabPositionLeft: 'Vasen sarake',
+        tabPositionRight: 'Oikea sarake',
         restoreStateOnReopen: 'Palauta tila uudelleen avattaessa',
         closeWindowWithLastTab: 'Sulje ikkuna viimeisen välilehden mukana',
         newFileDefaultMode: 'Uusi tiedosto avautuu editorissa',
@@ -236,7 +240,8 @@ export default {
     },
     tabs: {
         untitled: 'Nimetön',
-        home: 'Koti'
+        home: 'Koti',
+        resizeColumn: 'Muuta välilehtisarakkeen leveyttä'
     },
     common: {
         close: 'Sulje',

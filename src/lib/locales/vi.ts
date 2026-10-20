@@ -29,6 +29,10 @@ export default {
         previewOccurrences: 'Tô sáng các từ trùng với vùng chọn',
         previewAnnotations: 'Tô sáng tạm thời (menu chuột phải)',
         showTabs: 'Hiển thị tab',
+        tabPosition: 'Vị trí tab',
+        tabPositionTop: 'Trên cùng',
+        tabPositionLeft: 'Cột bên trái',
+        tabPositionRight: 'Cột bên phải',
         restoreStateOnReopen: 'Khôi phục trạng thái khi mở lại',
         closeWindowWithLastTab: 'Đóng cửa sổ khi đóng thẻ cuối cùng',
         newFileDefaultMode: 'Tệp mới mở trong trình chỉnh sửa',
@@ -236,7 +240,8 @@ export default {
     },
     tabs: {
         untitled: 'Chưa đặt tên',
-        home: 'Trang chủ'
+        home: 'Trang chủ',
+        resizeColumn: 'Đổi độ rộng cột tab'
     },
     common: {
         close: 'Đóng',

@@ -29,6 +29,10 @@ export default {
         previewOccurrences: 'Markera träffar för markeringen',
         previewAnnotations: 'Tillfällig markering (högerklicksmeny)',
         showTabs: 'Visa flikar',
+        tabPosition: 'Flikarnas placering',
+        tabPositionTop: 'Överst',
+        tabPositionLeft: 'Vänster kolumn',
+        tabPositionRight: 'Höger kolumn',
         restoreStateOnReopen: 'Återställ tillstånd vid återöppning',
         closeWindowWithLastTab: 'Stäng fönstret med sista fliken',
         newFileDefaultMode: 'Ny fil öppnas i redigeraren',
@@ -236,7 +240,8 @@ export default {
     },
     tabs: {
         untitled: 'Namnlös',
-        home: 'Hem'
+        home: 'Hem',
+        resizeColumn: 'Ändra bredd på flikkolumnen'
     },
     common: {
         close: 'Stäng',

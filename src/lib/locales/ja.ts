@@ -30,6 +30,10 @@ export default {
         previewOccurrences: '選択と同じ語をハイライト',
         previewAnnotations: '一時ハイライト(右クリックメニュー)',
         showTabs: 'タブを表示',
+        tabPosition: 'タブの位置',
+        tabPositionTop: '上',
+        tabPositionLeft: '左の列',
+        tabPositionRight: '右の列',
         restoreStateOnReopen: '再オープン時に状態を復元',
         closeWindowWithLastTab: '最後のタブを閉じたらウィンドウも閉じる',
         newFileDefaultMode: '新しいファイルをエディタで開く',
@@ -265,7 +269,8 @@ export default {
     },
     tabs: {
         untitled: '名前なし',
-        home: 'ホーム'
+        home: 'ホーム',
+        resizeColumn: 'タブ列の幅を変更'
     },
     common: {
         close: '閉じる',

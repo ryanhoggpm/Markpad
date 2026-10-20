@@ -29,6 +29,10 @@ export default {
         previewOccurrences: 'Zvýraznit shody s výběrem',
         previewAnnotations: 'Dočasné zvýraznění (místní nabídka)',
         showTabs: 'Zobrazit karty',
+        tabPosition: 'Umístění karet',
+        tabPositionTop: 'Nahoře',
+        tabPositionLeft: 'Levý sloupec',
+        tabPositionRight: 'Pravý sloupec',
         restoreStateOnReopen: 'Obnovit stav při opětovném otevření',
         closeWindowWithLastTab: 'Zavřít okno s poslední kartou',
         newFileDefaultMode: 'Nový soubor se otevře v editoru',
@@ -239,7 +243,8 @@ export default {
     },
     tabs: {
         untitled: 'Bez názvu',
-        home: 'Domů'
+        home: 'Domů',
+        resizeColumn: 'Změnit šířku sloupce karet'
     },
     common: {
         close: 'Zavřít',

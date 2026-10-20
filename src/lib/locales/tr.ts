@@ -29,6 +29,10 @@ export default {
         previewOccurrences: 'Seçimle eşleşenleri vurgula',
         previewAnnotations: 'Geçici vurgu (sağ tık menüsü)',
         showTabs: 'Sekmeleri Göster',
+        tabPosition: 'Sekme Konumu',
+        tabPositionTop: 'Üstte',
+        tabPositionLeft: 'Sol Sütun',
+        tabPositionRight: 'Sağ Sütun',
         restoreStateOnReopen: 'Yeniden Açıldığında Durumu Geri Yükle',
         closeWindowWithLastTab: 'Son sekmeyle birlikte pencereyi kapat',
         newFileDefaultMode: 'Yeni dosya editörde açılır',
@@ -236,7 +240,8 @@ export default {
     },
     tabs: {
         untitled: 'Başlıksız',
-        home: 'Ana Sayfa'
+        home: 'Ana Sayfa',
+        resizeColumn: 'Sekme sütununu yeniden boyutlandır'
     },
     common: {
         close: 'Kapat',

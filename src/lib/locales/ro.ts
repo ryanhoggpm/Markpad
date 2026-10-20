@@ -29,6 +29,10 @@ export default {
         previewOccurrences: 'Evidențiază potrivirile selecției',
         previewAnnotations: 'Evidențiere temporară (meniu contextual)',
         showTabs: 'Afișare file',
+        tabPosition: 'Poziția filelor',
+        tabPositionTop: 'Sus',
+        tabPositionLeft: 'Coloana din stânga',
+        tabPositionRight: 'Coloana din dreapta',
         restoreStateOnReopen: 'Restaurare stare la redeschidere',
         closeWindowWithLastTab: 'Închide fereastra odată cu ultima filă',
         newFileDefaultMode: 'Fișier nou se deschide în editor',
@@ -236,7 +240,8 @@ export default {
     },
     tabs: {
         untitled: 'Fără titlu',
-        home: 'Acasă'
+        home: 'Acasă',
+        resizeColumn: 'Redimensionează coloana de file'
     },
     common: {
         close: 'Închidere',

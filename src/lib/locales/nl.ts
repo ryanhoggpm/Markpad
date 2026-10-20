@@ -29,6 +29,10 @@ export default {
         previewOccurrences: 'Overeenkomsten met selectie markeren',
         previewAnnotations: 'Tijdelijke markering (contextmenu)',
         showTabs: 'Toon tabbladen',
+        tabPosition: 'Positie van tabbladen',
+        tabPositionTop: 'Boven',
+        tabPositionLeft: 'Linkerkolom',
+        tabPositionRight: 'Rechterkolom',
         restoreStateOnReopen: 'Herstel status bij heropenen',
         closeWindowWithLastTab: 'Venster sluiten met het laatste tabblad',
         newFileDefaultMode: 'Nieuw bestand opent in editor',
@@ -236,7 +240,8 @@ export default {
     },
     tabs: {
         untitled: 'Naamloos',
-        home: 'Startpagina'
+        home: 'Startpagina',
+        resizeColumn: 'Tabbladkolom vergroten of verkleinen'
     },
     common: {
         close: 'Sluiten',

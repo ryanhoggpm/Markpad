@@ -29,6 +29,10 @@ export default {
         previewOccurrences: 'Surligner les occurrences de la sélection',
         previewAnnotations: 'Surlignage temporaire (menu contextuel)',
         showTabs: 'Afficher les onglets',
+        tabPosition: 'Position des onglets',
+        tabPositionTop: 'En haut',
+        tabPositionLeft: 'Colonne de gauche',
+        tabPositionRight: 'Colonne de droite',
         restoreStateOnReopen: 'Restaurer l\'état à la réouverture',
         closeWindowWithLastTab: 'Fermer la fenêtre avec le dernier onglet',
         newFileDefaultMode: 'Nouveau fichier s\'ouvre dans l\'éditeur',
@@ -236,7 +240,8 @@ export default {
     },
     tabs: {
         untitled: 'Sans titre',
-        home: 'Accueil'
+        home: 'Accueil',
+        resizeColumn: 'Redimensionner la colonne des onglets'
     },
     common: {
         close: 'Fermer',

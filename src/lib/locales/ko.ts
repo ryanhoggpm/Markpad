@@ -32,6 +32,10 @@ export default {
         previewOccurrences: '선택한 단어와 같은 항목 강조',
         previewAnnotations: '임시 강조 표시(오른쪽 클릭 메뉴)',
         showTabs: '탭 표시',
+        tabPosition: '탭 위치',
+        tabPositionTop: '위쪽',
+        tabPositionLeft: '왼쪽 열',
+        tabPositionRight: '오른쪽 열',
         restoreStateOnReopen: '다시 열 때 상태 복원',
         closeWindowWithLastTab: '마지막 탭을 닫으면 창 닫기',
         newFileDefaultMode: '새 파일을 편집기에서 열기',
@@ -325,7 +329,8 @@ export default {
     },
     tabs: {
         untitled: '제목 없음',
-        home: '홈'
+        home: '홈',
+        resizeColumn: '탭 열 크기 조정'
     },
     common: {
         close: '닫기',

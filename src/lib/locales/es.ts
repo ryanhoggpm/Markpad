@@ -29,6 +29,10 @@ export default {
         previewOccurrences: 'Resaltar coincidencias de la selección',
         previewAnnotations: 'Resaltado temporal (menú contextual)',
         showTabs: 'Mostrar pestañas',
+        tabPosition: 'Posición de las pestañas',
+        tabPositionTop: 'Arriba',
+        tabPositionLeft: 'Columna izquierda',
+        tabPositionRight: 'Columna derecha',
         restoreStateOnReopen: 'Restaurar estado al reabrir',
         closeWindowWithLastTab: 'Cerrar la ventana con la última pestaña',
         newFileDefaultMode: 'Nuevo archivo se abre en el editor',
@@ -236,7 +240,8 @@ export default {
     },
     tabs: {
         untitled: 'Sin título',
-        home: 'Inicio'
+        home: 'Inicio',
+        resizeColumn: 'Cambiar ancho de la columna de pestañas'
     },
     common: {
         close: 'Cerrar',

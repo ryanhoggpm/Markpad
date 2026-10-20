@@ -33,6 +33,10 @@ export default {
         previewOccurrences: 'Подсвечивать совпадения с выделением',
         previewAnnotations: 'Временное выделение (контекстное меню)',
         showTabs: 'Показывать вкладки',
+        tabPosition: 'Расположение вкладок',
+        tabPositionTop: 'Сверху',
+        tabPositionLeft: 'Колонка слева',
+        tabPositionRight: 'Колонка справа',
         restoreStateOnReopen: 'Восстановить состояние при повторном открытии',
         closeWindowWithLastTab: 'Закрывать окно вместе с последней вкладкой',
         newFileDefaultMode: 'Новый файл открывается в редакторе',
@@ -241,7 +245,8 @@ export default {
     },
     tabs: {
         untitled: 'Без названия',
-        home: 'Главная'
+        home: 'Главная',
+        resizeColumn: 'Изменить ширину колонки вкладок'
     },
     common: {
         close: 'Закрыть',

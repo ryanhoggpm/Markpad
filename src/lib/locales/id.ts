@@ -29,6 +29,10 @@ export default {
         previewOccurrences: 'Sorot yang sama dengan pilihan',
         previewAnnotations: 'Sorotan sementara (menu klik kanan)',
         showTabs: 'Tampilkan Tab',
+        tabPosition: 'Posisi Tab',
+        tabPositionTop: 'Atas',
+        tabPositionLeft: 'Kolom Kiri',
+        tabPositionRight: 'Kolom Kanan',
         restoreStateOnReopen: 'Pulihkan Status saat Dibuka Kembali',
         closeWindowWithLastTab: 'Tutup Jendela bersama Tab Terakhir',
         newFileDefaultMode: 'File baru terbuka di editor',
@@ -236,7 +240,8 @@ export default {
     },
     tabs: {
         untitled: 'Tidak Berjudul',
-        home: 'Beranda'
+        home: 'Beranda',
+        resizeColumn: 'Ubah lebar kolom tab'
     },
     common: {
         close: 'Tutup',

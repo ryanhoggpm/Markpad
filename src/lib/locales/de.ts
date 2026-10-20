@@ -29,6 +29,10 @@ export default {
         previewOccurrences: 'Treffer der Auswahl hervorheben',
         previewAnnotations: 'Vorübergehende Hervorhebung (Kontextmenü)',
         showTabs: 'Tabs anzeigen',
+        tabPosition: 'Position der Tabs',
+        tabPositionTop: 'Oben',
+        tabPositionLeft: 'Linke Spalte',
+        tabPositionRight: 'Rechte Spalte',
         restoreStateOnReopen: 'Zustand beim erneuten Öffnen wiederherstellen',
         closeWindowWithLastTab: 'Fenster mit dem letzten Tab schließen',
         newFileDefaultMode: 'Neue Datei im Editor öffnen',
@@ -236,7 +240,8 @@ export default {
     },
     tabs: {
         untitled: 'Unbenannt',
-        home: 'Startseite'
+        home: 'Startseite',
+        resizeColumn: 'Breite der Tab-Spalte ändern'
     },
     common: {
         close: 'Schließen',

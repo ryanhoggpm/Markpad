@@ -29,6 +29,10 @@ export default {
         previewOccurrences: 'Zvýrazniť zhody s výberom',
         previewAnnotations: 'Dočasné zvýraznenie (kontextová ponuka)',
         showTabs: 'Zobraziť karty',
+        tabPosition: 'Umiestnenie kariet',
+        tabPositionTop: 'Hore',
+        tabPositionLeft: 'Ľavý stĺpec',
+        tabPositionRight: 'Pravý stĺpec',
         restoreStateOnReopen: 'Obnoviť stav pri opätovnom otvorení',
         closeWindowWithLastTab: 'Zatvoriť okno s poslednou kartou',
         newFileDefaultMode: 'Nový súbor sa otvorí v editore',
@@ -236,7 +240,8 @@ export default {
     },
     tabs: {
         untitled: 'Bez názvu',
-        home: 'Domov'
+        home: 'Domov',
+        resizeColumn: 'Zmeniť šírku stĺpca kariet'
     },
     common: {
         close: 'Zatvoriť',

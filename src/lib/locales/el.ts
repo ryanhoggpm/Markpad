@@ -29,6 +29,10 @@ export default {
         previewOccurrences: 'Επισήμανση αντιστοιχιών της επιλογής',
         previewAnnotations: 'Προσωρινή επισήμανση (μενού δεξιού κλικ)',
         showTabs: 'Εμφάνιση καρτελών',
+        tabPosition: 'Θέση καρτελών',
+        tabPositionTop: 'Πάνω',
+        tabPositionLeft: 'Αριστερή στήλη',
+        tabPositionRight: 'Δεξιά στήλη',
         restoreStateOnReopen: 'Επαναφορά κατάστασης κατά την επανεκκίνηση',
         closeWindowWithLastTab: 'Κλείσιμο παραθύρου με την τελευταία καρτέλα',
         newFileDefaultMode: 'Νέο αρχείο ανοίγει στον επεξεργαστή',
@@ -236,7 +240,8 @@ export default {
     },
     tabs: {
         untitled: 'Χωρίς τίτλο',
-        home: 'Αρχική'
+        home: 'Αρχική',
+        resizeColumn: 'Αλλαγή πλάτους στήλης καρτελών'
     },
     common: {
         close: 'Κλείσιμο',

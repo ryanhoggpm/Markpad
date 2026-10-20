@@ -29,6 +29,10 @@ export default {
         previewOccurrences: 'Evidenzia corrispondenze della selezione',
         previewAnnotations: 'Evidenziazione temporanea (menu contestuale)',
         showTabs: 'Mostra schede',
+        tabPosition: 'Posizione schede',
+        tabPositionTop: 'In alto',
+        tabPositionLeft: 'Colonna sinistra',
+        tabPositionRight: 'Colonna destra',
         restoreStateOnReopen: 'Ripristina stato alla riapertura',
         closeWindowWithLastTab: 'Chiudi la finestra con l\'ultima scheda',
         newFileDefaultMode: 'Nuovo file apre nell\'editor',
@@ -236,7 +240,8 @@ export default {
     },
     tabs: {
         untitled: 'Senza titolo',
-        home: 'Home'
+        home: 'Home',
+        resizeColumn: 'Ridimensiona colonna schede'
     },
     common: {
         close: 'Chiudi',

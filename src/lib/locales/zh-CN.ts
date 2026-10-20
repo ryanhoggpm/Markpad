@@ -44,6 +44,10 @@ export default {
         previewNewlineBreaks: '回车即换行',
         previewNewlineBreaksHint: '关：段内回车显示为空格，行尾两个空格才换行',
         showTabs: '显示标签栏',
+        tabPosition: '标签栏位置',
+        tabPositionTop: '顶部',
+        tabPositionLeft: '左侧栏',
+        tabPositionRight: '右侧栏',
         restoreStateOnReopen: '重新打开时恢复标签页',
         closeWindowWithLastTab: '关闭最后一个标签时关闭窗口',
         openFileMode: '打开已有文件时',
@@ -383,7 +387,8 @@ export default {
     },
     tabs: {
         untitled: '无标题',
-        home: '主页'
+        home: '主页',
+        resizeColumn: '调整标签栏宽度'
     },
     common: {
         close: '关闭',

@@ -29,6 +29,10 @@ export default {
         previewOccurrences: 'Destacar correspondências da seleção',
         previewAnnotations: 'Destaque temporário (menu de contexto)',
         showTabs: 'Mostrar abas',
+        tabPosition: 'Posição das abas',
+        tabPositionTop: 'Topo',
+        tabPositionLeft: 'Coluna à esquerda',
+        tabPositionRight: 'Coluna à direita',
         restoreStateOnReopen: 'Restaurar estado ao reabrir',
         closeWindowWithLastTab: 'Fechar a janela com a última aba',
         newFileDefaultMode: 'Novo arquivo abre no editor',
@@ -236,7 +240,8 @@ export default {
     },
     tabs: {
         untitled: 'Sem título',
-        home: 'Início'
+        home: 'Início',
+        resizeColumn: 'Redimensionar coluna de abas'
     },
     common: {
         close: 'Fechar',
